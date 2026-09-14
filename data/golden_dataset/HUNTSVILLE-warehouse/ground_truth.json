@@ -1,0 +1,49 @@
+{
+  "_purpose": "Verified-correct data for a REAL, already-completed project. Two kinds of ground truth here, deliberately: cost (from the real quote) AND quantity (from the real COMcheck reports) — the quantity fields are the first case where our extraction tools produce something directly comparable to a real answer key, not just cost.",
+  "project_id": "GOLDEN-HUNTSVILLE-001",
+  "project_name": "Huntsville Warehouse (2 buildings)",
+  "address": "904 US-190, Huntsville, TX 77340",
+  "client": "Syed Muhammad Ali / Aamina Group Inc",
+  "source_documents": {
+    "quote": "Huntsville_Quote.pdf",
+    "comcheck_warehouse_1": "COMcheck-warehouse 1 (12000 ft2).pdf",
+    "comcheck_warehouse_2": "COMcheck-warehouse 2 (4800 ft2).pdf",
+    "grading_drainage_plans": "Final Grading and Drainage Improvements for Huntsville Warehouse 10.29.25.pdf",
+    "fire_safety_plan": "Fire_safety_plan_Huntsville_wholesale cut_10.6.25.pdf"
+  },
+  "verified_quantities": {
+    "warehouse_1_floor_area_sf": 12000,
+    "warehouse_2_floor_area_sf": 4800,
+    "total_floor_area_sf": 16800,
+    "note": "Quote says 'approx 17,000 sq. ft total' — 16,800 is the exact COMcheck-stated sum; 17,000 is the vendor's own rounding, not a discrepancy to chase.",
+    "warehouse_1_envelope": {
+      "roof_sf": 12000, "floor_slab_sf": 473,
+      "wall_east_sf": 1209, "wall_south_sf": 2561, "wall_west_sf": 1209
+    },
+    "warehouse_2_envelope": {
+      "roof_sf": 4800, "floor_slab_sf": 320,
+      "wall_sf_total": 3200, "wall_segments_sf": [640, 640, 1920]
+    }
+  },
+  "cost_line_items": [
+    {"item": "Land Clearing & Grading", "total": 34985},
+    {"item": "Detention Pond + Stormwater management", "total": 10000},
+    {"item": "Fire Hydrant (incl. demo/repair asphalt & water line, TSMV Tap)", "total": 15000},
+    {"item": "Fire Hose Cabinets (approx $8k each, incl. 2.5\" water line)", "total": 24000},
+    {"item": "Concrete Pads - 6\" thick", "total": 298133},
+    {"item": "Metal Building (2 buildings, approx 17,000 sq ft total)", "total": 275000},
+    {"item": "Building Erection", "total": 95680},
+    {"item": "Insulation", "total": 82550},
+    {"item": "Firewall", "total": 18250},
+    {"item": "Climate Control (New + Existing 17,000 sq ft)", "total": 144300},
+    {"item": "Electric - Overhead (New Buildings Only)", "total": 68550},
+    {"item": "LED Lighting (New Buildings Only)", "total": 24752},
+    {"item": "Parapet on Sides + Paint on sides (Existing Building)", "total": 40000},
+    {"item": "Bathroom (Existing Building)", "total": 5000},
+    {"item": "Demo & Repair Front Concrete (Driveway)", "total": 3800}
+  ],
+  "subtotal": 1140000,
+  "contingency_pct": 10,
+  "contingency_amount": 114000,
+  "grand_total": 1254000
+}
