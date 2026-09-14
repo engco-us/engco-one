@@ -1,6 +1,6 @@
 {
   "sops": [
-    {"id": "SOP-001", "department": "Leadership and Operations", "procedure": "Project initiation and project numbering", "owner_role": "Managing Partner", "priority": "High", "status": "Missing"},
+    {"id": "SOP-001", "department": "Leadership and Operations", "procedure": "Project initiation and project numbering", "owner_role": "Managing Partner", "owner_name": "Yusuf", "priority": "High", "status": "Draft", "doc": "docs/sops/SOP-001-project-initiation-numbering.md"},
     {"id": "SOP-002", "department": "Leadership and Operations", "procedure": "Weekly portfolio review", "owner_role": "Managing Partner", "priority": "High", "status": "Missing"},
     {"id": "SOP-003", "department": "Business Development", "procedure": "Lead qualification and intake handoff", "owner_role": "Business Development Lead", "priority": "High", "status": "Missing"},
     {"id": "SOP-004", "department": "Business Development", "procedure": "Proposal scope and approval", "owner_role": "Managing Partner", "priority": "High", "status": "Missing"},
@@ -10,7 +10,7 @@
     {"id": "SOP-008", "department": "Engineering", "procedure": "Permit submittal and comment response", "owner_role": "Project Manager / Lead Engineer", "priority": "High", "status": "Missing"},
     {"id": "SOP-009", "department": "Construction Operations", "procedure": "Estimate review and construction authorization", "owner_role": "Managing Partner / Field Operations", "priority": "High", "status": "Missing"},
     {"id": "SOP-010", "department": "Construction Operations", "procedure": "Baseline schedule and look-ahead planning", "owner_role": "Field Operations Manager", "priority": "High", "status": "Missing"},
-    {"id": "SOP-011", "department": "Construction Operations", "procedure": "Daily reports and project photography", "owner_role": "Field Operations Manager", "priority": "High", "status": "Missing"},
+    {"id": "SOP-011", "department": "Construction Operations", "procedure": "Daily reports and project photography", "owner_role": "Field Operations Manager", "owner_name": "Shawqi", "priority": "High", "status": "Draft", "doc": "docs/sops/SOP-011-daily-field-reports.md"},
     {"id": "SOP-012", "department": "Construction Operations", "procedure": "Submittal and procurement control", "owner_role": "Project Manager", "priority": "High", "status": "Missing"},
     {"id": "SOP-013", "department": "Construction Operations", "procedure": "Change identification and authorization", "owner_role": "Project Manager", "priority": "High", "status": "Missing"},
     {"id": "SOP-014", "department": "Construction Operations", "procedure": "Safety incident and quality issue escalation", "owner_role": "Field Operations Manager", "priority": "High", "status": "Missing"},
