@@ -2,6 +2,10 @@
 
 The operating system for ENGCO's integrated engineering, permitting, and construction delivery — one shared project record, seven specialized AI agents, human approval on everything that leaves the building.
 
+## Plans
+- `TRANSFORMATION_PLAN.md` — the company-wide governance/SOP/agent rollout plan.
+- `ESTIMATING_TEAM_PLAN.md` — build plan for ENGCO's own PDF-based estimating tools + agents (replaces reliance on OpenConstructionERP's automated takeoff, which was evaluated and rejected).
+
 ## Structure
 - `docs/` — company-wide agent instructions + the Active Project Operating Guide (how a project actually moves through the company)
 - `agents/` — one deployment package per specialized agent (A-01 through A-07), each inheriting `docs/company_wide_instructions.md` plus its own mission, boundaries, and required evals
