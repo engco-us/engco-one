@@ -1,0 +1,135 @@
+{
+  "_purpose": "Golden quantity test manifest (ESTIMATING_TEAM_PLAN.md Phase 4). Each entry: a real PDF, which extractor+field to run, the known-correct value, and how confident we are in that 'known-correct' value itself. 'independently_verified' means the value was confirmed from a SECOND real source (a filename, a web summary) before any extraction code touched it — that's the strong evidence. 'self_consistent_only' means we only have the document's own stated value — real, but weaker evidence; still useful for regression testing (did the tool's answer change?) but not for claiming proven accuracy. PDFs are not committed to this repo (large binaries) — source_url lets them be re-fetched; local_path is this machine's cache location, not portable.",
+  "entries": [
+    {
+      "id": "comcheck-huntsville-1",
+      "extractor": "extract_comcheck.py",
+      "field": "floor_area_sf",
+      "expected_value": 12000,
+      "confidence": "independently_verified",
+      "verification_note": "Filename states '12000 ft2'; matches.",
+      "source_url": null,
+      "source_note": "Provided directly by Yusuf, not a public URL.",
+      "local_path": "~/Downloads/COMcheck-warehouse 1 (12000 ft2).pdf"
+    },
+    {
+      "id": "comcheck-huntsville-2",
+      "extractor": "extract_comcheck.py",
+      "field": "floor_area_sf",
+      "expected_value": 4800,
+      "confidence": "independently_verified",
+      "verification_note": "Filename states '4800 ft2'; matches.",
+      "source_url": null,
+      "local_path": "~/Downloads/COMcheck-warehouse 2 (4800 ft2).pdf"
+    },
+    {
+      "id": "comcheck-idaho-itd",
+      "extractor": "extract_comcheck.py",
+      "field": "floor_area_sf",
+      "expected_value": 15462,
+      "confidence": "self_consistent_only",
+      "verification_note": "Only the document's own stated value; no second source checked.",
+      "source_url": "https://apps.itd.idaho.gov/Apps/NonHwyConstructionProjects/PDFS/ITD.Preston.COMcheck-Web.1-31-2025%20(1).pdf",
+      "local_path": "/tmp/comcheck_test/idaho.pdf"
+    },
+    {
+      "id": "comcheck-gramoll-dfcm",
+      "extractor": "extract_comcheck.py",
+      "field": "floor_area_sf",
+      "expected_value": 34065,
+      "confidence": "self_consistent_only",
+      "source_url": "https://www.gramoll.com/wp-content/uploads/2018/10/6-07-24252300-Approved-COMcheck.pdf",
+      "local_path": "/tmp/comcheck_test/gramoll.pdf"
+    },
+    {
+      "id": "comcheck-webreps",
+      "extractor": "extract_comcheck.py",
+      "field": "floor_area_sf",
+      "expected_value": 1197,
+      "confidence": "self_consistent_only",
+      "source_url": "http://webrepswholesale.com/assets/ComCheck%20Sample.pdf",
+      "local_path": "/tmp/comcheck_test/webreps.pdf"
+    },
+    {
+      "id": "rescheck-pearland",
+      "extractor": "extract_rescheck.py",
+      "field": "conditioned_floor_area_sf",
+      "expected_value": 3755,
+      "confidence": "independently_verified",
+      "verification_note": "Matched an independent web search summary ('3,755 ft2') before extraction code was written.",
+      "source_url": "https://www.rescheck.info/wp-content/uploads/2019/02/Pearland-Texas-Rescheck-Sample.pdf",
+      "local_path": "/tmp/rescheck_test/pearland.pdf"
+    },
+    {
+      "id": "rescheck-scott",
+      "extractor": "extract_rescheck.py",
+      "field": "conditioned_floor_area_sf",
+      "expected_value": 3405,
+      "confidence": "independently_verified",
+      "verification_note": "Matched an independent web search summary ('Frederick, Colorado... 3,405 ft2').",
+      "source_url": "https://scotthomeinspection.com/wp-content/uploads/2017/08/Sample_REScheck_Report.pdf",
+      "local_path": "/tmp/rescheck_test/scott.pdf"
+    },
+    {
+      "id": "rescheck-rescheckez",
+      "extractor": "extract_rescheck.py",
+      "field": "conditioned_floor_area_sf",
+      "expected_value": 1581,
+      "confidence": "independently_verified",
+      "verification_note": "Matched an independent web search summary ('Perkasie, Pennsylvania... 1,581 ft2').",
+      "source_url": "http://rescheckez.com/rescheck_certificate_sample.pdf",
+      "local_path": "/tmp/rescheck_test/rescheckez.pdf"
+    },
+    {
+      "id": "rescheck-sample2021",
+      "extractor": "extract_rescheck.py",
+      "field": "conditioned_floor_area_sf",
+      "expected_value": 1700,
+      "confidence": "self_consistent_only",
+      "source_url": "https://www.rescheck.info/wp-content/uploads/2021/09/rc-report-sample2021-sep-28-21.pdf",
+      "local_path": "/tmp/rescheck_test/sample2021.pdf"
+    },
+    {
+      "id": "rescheck-wisconsin",
+      "extractor": "extract_rescheck.py",
+      "field": "conditioned_floor_area_sf",
+      "expected_value": 2022,
+      "confidence": "self_consistent_only",
+      "source_url": "https://www.rescheck.info/wp-content/uploads/2019/02/Wisconsin-Uniform-Dwelling-Code-2009-Rescheck.pdf",
+      "local_path": "/tmp/rescheck_test/wisconsin.pdf"
+    },
+    {
+      "id": "txdot-martin-bidcode-105-7028",
+      "extractor": "extract_txdot_eq.py",
+      "field": "bid_code:105-7028:est_quantity",
+      "expected_value": 115534,
+      "confidence": "independently_verified",
+      "verification_note": "Cross-checked by hand against the Roadway Summary sheet in the same document (57,767 West + 57,767 East = 115,534, exact match) — a second source within the same real project, not the document repeating itself.",
+      "source_url": "https://ftp.txdot.gov/plans/State-Let-Construction/2025/06%20June/06%20Plans/Martin%200005-04-083.pdf",
+      "local_path": "/tmp/txdot_test/martin.pdf",
+      "page": 10
+    },
+    {
+      "id": "txdot-martin-bidcode-251-7083",
+      "extractor": "extract_txdot_eq.py",
+      "field": "bid_code:251-7083:est_quantity",
+      "expected_value": 115534,
+      "confidence": "independently_verified",
+      "verification_note": "Same cross-check method as 105-7028, same document.",
+      "source_url": "https://ftp.txdot.gov/plans/State-Let-Construction/2025/06%20June/06%20Plans/Martin%200005-04-083.pdf",
+      "local_path": "/tmp/txdot_test/martin.pdf",
+      "page": 10
+    },
+    {
+      "id": "txdot-martin-row-count",
+      "extractor": "extract_txdot_eq.py",
+      "field": "row_count",
+      "expected_value": 35,
+      "confidence": "self_consistent_only",
+      "verification_note": "Manually counted from the raw PDF text by a human reading the sheet, not from an independent second document.",
+      "source_url": "https://ftp.txdot.gov/plans/State-Let-Construction/2025/06%20June/06%20Plans/Martin%200005-04-083.pdf",
+      "local_path": "/tmp/txdot_test/martin.pdf",
+      "page": 10
+    }
+  ]
+}
