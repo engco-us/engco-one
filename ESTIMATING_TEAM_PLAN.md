@@ -33,14 +33,14 @@ This is the build-out of the **Preconstruction / Estimating** function already a
 - On a test plan set, zero invented quantities, and every cross-check flag raised is a real, correct catch (verified by human review). Met: PC3 discrepancy (3 vs 4) was a real catch, resolved with a second source, not guessed.
 - Fails if: any single vision read is reported as a final number without either a citation or a flag. Met — PC1's absence was reported as an open gap, not filled in.
 
-## Phase 3 — Output assembly
+## Phase 3 — Output assembly (DONE)
 **Tasks**
-- Define the scope-of-work output format: CSI-division structured, every line = description, quantity, unit, source citation, confidence label (schedule-verified / cross-checked / single-source / benchmark-only).
-- Add the pricing layer: real vendor/catalog rates where we have them, AACE-classed benchmark rates where we don't (per SOP-023) — never blended without labeling which is which.
+- [x] Scope-of-work output format built (`scripts/estimating/assemble_scope.py`): CSI-division structured, every line = description, quantity, unit, citation(s), confidence label. Validation enforced in code, not just convention — tested that it actually rejects an uncited line.
+- [x] Pricing layer added: one clearly-labeled benchmark line (`rate_source: "benchmark"`), explicit that it is not a vendor quote and not a sum of the unpriced quantity lines above it. No fake per-line pricing invented for quantities we have no real unit-cost source for (e.g. pier caps).
 
 **Milestones / exit criteria**
-- A full run on the Nueces plan set produces a structured, fully-cited output at least as complete as today's manual Class 4 result.
-- Fails if: any line item lacks a confidence label or citation.
+- A full run on the Nueces plan set produces a structured, fully-cited output at least as complete as today's manual Class 4 result. Met — 10 lines, `scripts/estimating/proof_runs/nueces-23015/scope_of_work.md`.
+- Fails if: any line item lacks a confidence label or citation. Enforced mechanically, not just as a rule someone could forget.
 
 ## Phase 4 — Golden dataset + eval harness
 **Tasks**
