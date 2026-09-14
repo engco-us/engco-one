@@ -17,8 +17,15 @@ import json
 import re
 import subprocess
 
+# Two real formats confirmed on independently downloaded TxDOT plan sets:
+#   "Estimate & Quantity Sheet": 3-digit bid code, EST + FINAL columns
+#     e.g. "105-7028   RMV (8") TRT/UNTRT BASE & ASPH PAV   SY   115,534.000   115,534.000"
+#   "Quantity Summary" (seen on a different real project, smaller maintenance
+#     contract style): 4-digit bid code, single QTY column, no decimals
+#     e.g. "0350-7001   MICROSURFACING   TON   381"
+# The final quantity group is optional to cover both.
 ROW_PATTERN = re.compile(
-    r"^\s*(\d{3}-\d{4})\s+(.+?)\s{2,}([A-Z]{1,4})\s+([\d,]+\.\d+)\s+([\d,]+\.\d+)\s*$"
+    r"^\s*(\d{3,4}-\d{4})\s+(.+?)\s{2,}([A-Z]{1,4})\s+([\d,]+(?:\.\d+)?)(?:\s+([\d,]+(?:\.\d+)?))?\s*$"
 )
 
 UNIT_TOKENS = re.compile(r"\b(SY|CY|LF|TON|EA|STA|MO|LS|HR|SF|GAL|LB|DAY)\b")
@@ -48,7 +55,14 @@ def find_candidate_pages(pdf_path: str) -> list:
     candidates = []
     for pg in range(1, n + 1):
         text = page_text(pdf_path, pg)
-        if len(UNIT_TOKENS.findall(text)) > 15:
+        # Threshold tested down from >15: a real "Quantity Summary" sheet
+        # (a second confirmed real TxDOT format, smaller maintenance-
+        # contract style, one CSJ per page) had only 13 hits and was
+        # missed entirely at the higher threshold. Lowering this is safe
+        # since the strict row parser (not this heuristic) is what
+        # actually prevents garbage — tested to correctly return zero
+        # rows on non-matching pages even when flagged as a candidate.
+        if len(UNIT_TOKENS.findall(text)) > 8:
             candidates.append(pg)
     return candidates
 
@@ -60,12 +74,14 @@ def extract(pdf_path: str, page: int) -> list:
         m = ROW_PATTERN.match(line)
         if not m:
             continue
+        est = float(m.group(4).replace(",", ""))
+        final = float(m.group(5).replace(",", "")) if m.group(5) else None
         rows.append({
             "bid_code": m.group(1),
             "description": m.group(2).strip(),
             "unit": m.group(3),
-            "est_quantity": float(m.group(4).replace(",", "")),
-            "final_quantity": float(m.group(5).replace(",", "")),
+            "est_quantity": est,
+            "final_quantity": final,  # None on single-column "Quantity Summary" sheets
             "source_file": pdf_path,
             "source_page": page,
             "source_line": line.strip(),
