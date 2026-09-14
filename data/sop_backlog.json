@@ -21,6 +21,7 @@
     {"id": "SOP-019", "department": "Marketing and Client Experience", "procedure": "Project closeout to portfolio publication", "owner_role": "Marketing Lead", "priority": "Medium", "status": "Missing"},
     {"id": "SOP-020", "department": "Technology and Systems", "procedure": "User access, onboarding, and offboarding", "owner_role": "Technology Lead", "priority": "High", "status": "Missing"},
     {"id": "SOP-021", "department": "Technology and Systems", "procedure": "System backup, recovery, and incident response", "owner_role": "Technology Lead", "priority": "High", "status": "Missing"},
-    {"id": "SOP-022", "department": "Leadership and Operations", "procedure": "Project closeout and lessons learned", "owner_role": "Project Manager", "priority": "High", "status": "Missing"}
+    {"id": "SOP-022", "department": "Leadership and Operations", "procedure": "Project closeout and lessons learned", "owner_role": "Project Manager", "priority": "High", "status": "Missing"},
+    {"id": "SOP-023", "department": "Business Development", "procedure": "Estimation from client-provided PDF drawing sets (AACE-classed benchmark estimating)", "owner_role": "Estimator", "owner_name": "Waqas", "priority": "High", "status": "Draft", "doc": "docs/sops/SOP-023-pdf-based-estimation.md"}
   ]
 }
