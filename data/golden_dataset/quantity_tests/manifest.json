@@ -51,6 +51,16 @@
       "local_path": "/tmp/comcheck_test/webreps.pdf"
     },
     {
+      "id": "comcheck-idealconstruction-woodhouse",
+      "extractor": "extract_comcheck.py",
+      "field": "floor_area_sf",
+      "expected_value": 6329,
+      "confidence": "self_consistent_only",
+      "verification_note": "Real project 'Woodhouse Ford Pro'.",
+      "source_url": "https://www.idealconstruction.com/wp-content/uploads/2024/01/Envelope-COMcheck.pdf",
+      "local_path": "/tmp/comcheck_test2/idealconstruction.pdf"
+    },
+    {
       "id": "rescheck-pearland",
       "extractor": "extract_rescheck.py",
       "field": "conditioned_floor_area_sf",
@@ -169,6 +179,26 @@
       "source_url": "https://ftp.txdot.gov/plans/State-Let-Construction/2025/06%20June/06%20Plans/Bastrop%200265-03-043.pdf",
       "local_path": "/tmp/txdot_test2/bastrop.pdf",
       "page": 35
+    },
+    {
+      "id": "txdot-collin-row-count",
+      "extractor": "extract_txdot_eq.py",
+      "field": "row_count",
+      "expected_value": 22,
+      "confidence": "self_consistent_only",
+      "source_url": "https://ftp.txdot.gov/plans/State-Let-Construction/2025/06%20June/06%20Plans/Collin%200047-06-173.pdf",
+      "local_path": "/tmp/txdot_test2/collin.pdf",
+      "page": 13
+    },
+    {
+      "id": "txdot-dallas-row-count",
+      "extractor": "extract_txdot_eq.py",
+      "field": "row_count",
+      "expected_value": 35,
+      "confidence": "self_consistent_only",
+      "source_url": "https://ftp.txdot.gov/plans/State-Let-Construction/2025/06%20June/06%20Plans/Dallas%200581-01-165.pdf",
+      "local_path": "/tmp/txdot_test2/dallas.pdf",
+      "page": 18
     },
     {
       "id": "txdot-martin-row-count",
