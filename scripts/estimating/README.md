@@ -11,8 +11,12 @@ its sheet type (floor plan, schedule, framing plan, code summary, etc.) by
 keyword match. No model call, no cost, no invention risk.
 
 **`extract_code_summary.py`** — pulls known code-summary fields (gross
-building SF, unit count, stories) off a general/cover sheet, with an exact
-citation for every value.
+building SF, unit count, stories, per-floor areas) off a general/cover
+sheet, with an exact citation for every value — and runs a real
+cross-check: do the per-floor areas actually sum to the stated total?
+Uses `pdftotext -layout` (preserves column position), which was necessary:
+plain-mode text interleaves multiple tables unpredictably when the same
+label ("FIRST FLOOR:") appears in two different tables on one sheet.
 
 ## The citation rule every tool here follows
 
@@ -40,6 +44,12 @@ against sheets already visually confirmed earlier:
 - `extract_code_summary.py` pulled **77,315 SF gross building area, 36
   units, 6 stories** off the GEN sheet — matching exactly what we
   extracted by hand in the Nueces estimate, each with a citation.
+- Its cross-check (sum of the 6 per-floor areas vs. the stated total)
+  **passed exactly**: 14,208 + 14,171 + 13,164 + 11,924 + 11,924 + 11,924 =
+  77,315. This is the first real, working example of the Phase 2 principle
+  from `ESTIMATING_TEAM_PLAN.md`: never trust one source when a second
+  exists — here, both agree, so both are now more trustworthy than
+  either alone. A mismatch would have been flagged, not resolved silently.
 
 ## Known limitation — not solved, documented on purpose
 
