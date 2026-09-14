@@ -22,16 +22,16 @@ This is the build-out of the **Preconstruction / Estimating** function already a
 - Extractor correctly pulls GSF, unit count, and at least one full schedule from Nueces, matching the numbers we already manually confirmed.
 - Fails if: any extracted "text" number can't be traced back to an exact source line in the PDF.
 
-## Phase 2 — Guarded AI reading layer (mostly done)
+## Phase 2 — Guarded AI reading layer (DONE)
 **Tasks**
 - [x] Write the vision usage rule: count/identify only, never originate a precise number a schedule should provide. Written into `scripts/estimating/README.md`.
 - [x] Build cross-check logic — `extract_code_summary.py`'s per-floor-sum-vs-total check, proven on real Nueces data (77,315 = 77,315, exact match).
 - [x] Build a sanity-range benchmark table — `data/sanity_ranges.json` + `scripts/estimating/check_sanity.py`, tested against both a real implausible case (catches it) and the fabricated demo-data steel figure (does NOT catch it — documented honestly as a real limitation of range-checking alone).
-- [ ] Not yet done: an actual guarded vision read on a real drawing, demonstrated end to end (render_sheet.py exists and is tested; the agent-side counting/identifying task itself hasn't been run yet).
+- [x] Guarded vision read demonstrated end to end on the real Nueces foundation plan (pier cap count by mark). Found a real wrong assumption (schedule quantity misread as total instances), then found vision-cropping itself unreliable, then found text-occurrence counting is the better primary method with vision as the cross-check — the reverse of the intuitive order. See `scripts/estimating/README.md`. One genuine open gap surfaced (PC1 never found as a plan callout) and correctly left unresolved rather than guessed.
 
 **Milestones / exit criteria**
-- On a test plan set, zero invented quantities, and every cross-check flag raised is a real, correct catch (verified by human review). Met so far on the one cross-check built.
-- Fails if: any single vision read is reported as a final number without either a citation or a flag. Not yet tested against a real vision read — open.
+- On a test plan set, zero invented quantities, and every cross-check flag raised is a real, correct catch (verified by human review). Met: PC3 discrepancy (3 vs 4) was a real catch, resolved with a second source, not guessed.
+- Fails if: any single vision read is reported as a final number without either a citation or a flag. Met — PC1's absence was reported as an open gap, not filled in.
 
 ## Phase 3 — Output assembly
 **Tasks**

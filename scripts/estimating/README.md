@@ -76,6 +76,31 @@ against sheets already visually confirmed earlier:
   exists — here, both agree, so both are now more trustworthy than
   either alone. A mismatch would have been flagged, not resolved silently.
 
+## Lesson learned counting repeated plan callouts (2026-09-14)
+
+Tried to count pier cap symbols (PC1-PC5) on the Nueces foundation plan by
+cropping the sheet into quadrants and reading each visually. That method
+turned out unreliable on its own — crop boundaries risk double-counting
+or missing a symbol split across two images, and it nearly produced a
+false-confident wrong total.
+
+**Better method, proven on the same real page**: since these callouts are
+real text in a CAD-exported PDF (not raster), count text occurrences of
+each mark instead (`grep -oE "\bPC[1-5]\b" | sort | uniq -c` on
+`pdftotext -layout` output), then subtract 1 per mark for its schedule-
+table row. This matched the vision count exactly on 4 of 5 marks, and
+where the fifth (PC3) disagreed (3 vs 4), checking a second sheet
+(the same building's other foundation-plan page) confirmed the text
+method's miss, not the vision count's error. **Rule going forward:
+prefer text-occurrence counting over vision-cropping for any repeated
+plan callout, and use vision counting only as the cross-check, not the
+primary source** — the reverse of what felt intuitive to try first.
+
+A real, honest gap came out of this too: PC1 appears in the schedule but
+was never found as a plan callout on any of the three sheets classified
+as `foundation_plan` in this set. Not resolved, not guessed at — flagged
+as needing a human to check the source file directly.
+
 ## Known limitation — not solved, documented on purpose
 
 Some pages contain text from **hidden/invisible CAD layers** that
