@@ -1,0 +1,84 @@
+{
+  "phase_gates": [
+    {
+      "from": "Intake",
+      "to": "Active Project",
+      "required_evidence": "Qualified opportunity, project ID, responsible lead, and authorization to proceed.",
+      "accountable_owner": "Managing Partner / PM"
+    },
+    {
+      "from": "Feasibility",
+      "to": "Design",
+      "required_evidence": "Site constraints, jurisdiction path, utilities, scope alignment, and risks recorded.",
+      "accountable_owner": "Project Manager"
+    },
+    {
+      "from": "Design",
+      "to": "Permitting",
+      "required_evidence": "Discipline review complete, seals identified, package complete, owner approval recorded.",
+      "accountable_owner": "Lead Engineer"
+    },
+    {
+      "from": "Permitting",
+      "to": "Preconstruction",
+      "required_evidence": "Reviewer status known, constructability reviewed, pricing assumptions documented, long-lead items identified.",
+      "accountable_owner": "Project Manager"
+    },
+    {
+      "from": "Preconstruction",
+      "to": "Construction",
+      "required_evidence": "Approved construction documents, authorization, baseline schedule, budget, safety plan, field lead established.",
+      "accountable_owner": "Project Manager / Field Lead"
+    },
+    {
+      "from": "Construction",
+      "to": "Closeout",
+      "required_evidence": "Punch list, inspections, changes, billing, and closeout deliverables controlled.",
+      "accountable_owner": "Project Manager"
+    }
+  ],
+  "valid_phases": [
+    "Discovery",
+    "Feasibility",
+    "Design",
+    "Permitting",
+    "Preconstruction",
+    "Construction",
+    "Closeout"
+  ],
+  "valid_overall_status": [
+    "On Track",
+    "Watch",
+    "At Risk",
+    "Critical"
+  ],
+  "valid_workstream_status": [
+    "Not Started",
+    "On Track",
+    "Watch",
+    "At Risk",
+    "Complete",
+    "Not Applicable"
+  ],
+  "naming_standard": {
+    "folder": "ENG-YYYY-### | Project Name | City",
+    "file": "ProjectID_Discipline_Document_Revision_YYYY-MM-DD"
+  },
+  "projects": [
+    {
+      "project_id": "ENG-2026-001",
+      "project_name": "CE King Pkwy Hike and Bike Trail",
+      "city": "Houston",
+      "client": "Harris County Engineering Department",
+      "project_type": "Civil / Trail and Bridge",
+      "current_phase": "Design",
+      "overall_status": "On Track",
+      "project_manager": "TBD",
+      "contract_value": 0,
+      "start_date": "2026-09-14",
+      "forecast_finish": null,
+      "last_update": "2026-09-14",
+      "folder": "projects/ENG-2026-001-CE-King-Pkwy-Hike-and-Bike-Trail-Houston"
+    }
+  ]
+}

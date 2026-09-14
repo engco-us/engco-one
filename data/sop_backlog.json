@@ -1,0 +1,26 @@
+{
+  "sops": [
+    {"id": "SOP-001", "department": "Leadership and Operations", "procedure": "Project initiation and project numbering", "owner_role": "Managing Partner", "priority": "High", "status": "Missing"},
+    {"id": "SOP-002", "department": "Leadership and Operations", "procedure": "Weekly portfolio review", "owner_role": "Managing Partner", "priority": "High", "status": "Missing"},
+    {"id": "SOP-003", "department": "Business Development", "procedure": "Lead qualification and intake handoff", "owner_role": "Business Development Lead", "priority": "High", "status": "Missing"},
+    {"id": "SOP-004", "department": "Business Development", "procedure": "Proposal scope and approval", "owner_role": "Managing Partner", "priority": "High", "status": "Missing"},
+    {"id": "SOP-005", "department": "Engineering", "procedure": "Engineering kickoff and design basis", "owner_role": "Engineering Manager", "priority": "High", "status": "Missing"},
+    {"id": "SOP-006", "department": "Engineering", "procedure": "Drawing review and issuance", "owner_role": "Principal Engineer", "priority": "High", "status": "Missing"},
+    {"id": "SOP-007", "department": "Engineering", "procedure": "RFI and field-response workflow", "owner_role": "Engineering Manager", "priority": "High", "status": "Missing"},
+    {"id": "SOP-008", "department": "Engineering", "procedure": "Permit submittal and comment response", "owner_role": "Project Manager / Lead Engineer", "priority": "High", "status": "Missing"},
+    {"id": "SOP-009", "department": "Construction Operations", "procedure": "Estimate review and construction authorization", "owner_role": "Managing Partner / Field Operations", "priority": "High", "status": "Missing"},
+    {"id": "SOP-010", "department": "Construction Operations", "procedure": "Baseline schedule and look-ahead planning", "owner_role": "Field Operations Manager", "priority": "High", "status": "Missing"},
+    {"id": "SOP-011", "department": "Construction Operations", "procedure": "Daily reports and project photography", "owner_role": "Field Operations Manager", "priority": "High", "status": "Missing"},
+    {"id": "SOP-012", "department": "Construction Operations", "procedure": "Submittal and procurement control", "owner_role": "Project Manager", "priority": "High", "status": "Missing"},
+    {"id": "SOP-013", "department": "Construction Operations", "procedure": "Change identification and authorization", "owner_role": "Project Manager", "priority": "High", "status": "Missing"},
+    {"id": "SOP-014", "department": "Construction Operations", "procedure": "Safety incident and quality issue escalation", "owner_role": "Field Operations Manager", "priority": "High", "status": "Missing"},
+    {"id": "SOP-015", "department": "Finance and Administration", "procedure": "Project setup, budget, and billing schedule", "owner_role": "Accounting Lead", "priority": "High", "status": "Missing"},
+    {"id": "SOP-016", "department": "Finance and Administration", "procedure": "Invoice, pay application, and collection control", "owner_role": "Accounting Lead", "priority": "High", "status": "Missing"},
+    {"id": "SOP-017", "department": "Finance and Administration", "procedure": "Vendor onboarding and compliance", "owner_role": "Accounting / Administration Lead", "priority": "Medium", "status": "Missing"},
+    {"id": "SOP-018", "department": "Marketing and Client Experience", "procedure": "Project communication and client update", "owner_role": "Client Relations Lead", "priority": "Medium", "status": "Missing"},
+    {"id": "SOP-019", "department": "Marketing and Client Experience", "procedure": "Project closeout to portfolio publication", "owner_role": "Marketing Lead", "priority": "Medium", "status": "Missing"},
+    {"id": "SOP-020", "department": "Technology and Systems", "procedure": "User access, onboarding, and offboarding", "owner_role": "Technology Lead", "priority": "High", "status": "Missing"},
+    {"id": "SOP-021", "department": "Technology and Systems", "procedure": "System backup, recovery, and incident response", "owner_role": "Technology Lead", "priority": "High", "status": "Missing"},
+    {"id": "SOP-022", "department": "Leadership and Operations", "procedure": "Project closeout and lessons learned", "owner_role": "Project Manager", "priority": "High", "status": "Missing"}
+  ]
+}
