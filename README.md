@@ -11,6 +11,8 @@ The operating system for ENGCO's integrated engineering, permitting, and constru
   - `validate_record.py` — checks a project record against required fields/vocab before it's trusted
   - `run_agent_eval.py` — prints an agent's required eval cases for consistent testing
   - `scorecard.py` — logs/checks the weekly scorecard (active projects, proposals out, cash position)
+  - `log_agent_run.py` — logs a real agent run + reviewer correction (`data/agent_run_log.json`)
+  - `promote_learning.py` — surfaces repeated corrections so they get written into that agent's instructions instead of getting fixed once and forgotten
 - `projects/` — actual project folders, one per active job
 
 ## Status

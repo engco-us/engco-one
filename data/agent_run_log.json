@@ -1,0 +1,4 @@
+{
+  "_purpose": "Every real (non-test) agent run gets one entry. Corrections that repeat get promoted into that agent's instructions (agents/A-0N-*.md) or a new eval case (data/agent_registry.json eval_cases) by whoever reviews the run.",
+  "runs": []
+}
