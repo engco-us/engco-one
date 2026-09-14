@@ -10,6 +10,20 @@ them from scratch (and never has a chance to invent them).
 its sheet type (floor plan, schedule, framing plan, code summary, etc.) by
 keyword match. No model call, no cost, no invention risk.
 
+**`render_sheet.py`** — renders one PDF page to an image at a tested DPI,
+for vision reading. The only sanctioned way to get a sheet in front of a
+vision model in this pipeline — see the VISION RULE below before using it.
+
+**`check_sanity.py`** — flags an extracted quantity as implausible if it
+falls outside a typical range for its category (`data/sanity_ranges.json`).
+Catches wildly-wrong values (wrong units, misread digit) cheaply. **Does
+not catch a moderately-wrong-but-plausible number** — tested against the
+fabricated 620,000 kg steel figure from the OpenConstructionERP demo data
+(see chat history 2026-09-14): it lands at 10.4 lb/sf, comfortably inside
+the normal 6-40 range, so this check alone would **not** have caught it.
+Range-checking is a cheap secondary catch, not a substitute for citations
+and cross-checks — those stay the primary defense against invented numbers.
+
 **`extract_code_summary.py`** — pulls known code-summary fields (gross
 building SF, unit count, stories, per-floor areas) off a general/cover
 sheet, with an exact citation for every value — and runs a real
@@ -17,6 +31,17 @@ cross-check: do the per-floor areas actually sum to the stated total?
 Uses `pdftotext -layout` (preserves column position), which was necessary:
 plain-mode text interleaves multiple tables unpredictably when the same
 label ("FIRST FLOOR:") appears in two different tables on one sheet.
+
+## VISION RULE (Phase 2 guardrail)
+
+Vision is allowed to **count and identify** — how many, roughly what kind,
+is this present. Vision is **never allowed to originate a precise number**
+that should come from a schedule or a labeled dimension. If a precise
+number matters and there's no table for it, that's a flagged gap for a
+human to resolve — not a vision guess reported as a fact. This rule exists
+because vision reads on tiny CAD dimension text are unreliable in exactly
+the way schedule text extraction isn't; the failure mode to avoid is a
+confident-looking wrong number with no way to tell it apart from a right one.
 
 ## The citation rule every tool here follows
 

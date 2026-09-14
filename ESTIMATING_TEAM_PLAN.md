@@ -22,15 +22,16 @@ This is the build-out of the **Preconstruction / Estimating** function already a
 - Extractor correctly pulls GSF, unit count, and at least one full schedule from Nueces, matching the numbers we already manually confirmed.
 - Fails if: any extracted "text" number can't be traced back to an exact source line in the PDF.
 
-## Phase 2 — Guarded AI reading layer
+## Phase 2 — Guarded AI reading layer (mostly done)
 **Tasks**
-- Write the vision usage rule into the agent instructions: count and identify only; never originate a precise number that should come from a schedule.
-- Build cross-check logic: wherever two independent sources should agree (schedule count vs. plan tag count, cover-sheet GSF vs. summed floor areas), compare them and flag mismatches instead of picking one.
-- Build a sanity-range benchmark table (steel lb/SF, concrete yd³/SF, doors/unit, etc.) — anything extracted outside the typical range auto-flags for human review.
+- [x] Write the vision usage rule: count/identify only, never originate a precise number a schedule should provide. Written into `scripts/estimating/README.md`.
+- [x] Build cross-check logic — `extract_code_summary.py`'s per-floor-sum-vs-total check, proven on real Nueces data (77,315 = 77,315, exact match).
+- [x] Build a sanity-range benchmark table — `data/sanity_ranges.json` + `scripts/estimating/check_sanity.py`, tested against both a real implausible case (catches it) and the fabricated demo-data steel figure (does NOT catch it — documented honestly as a real limitation of range-checking alone).
+- [ ] Not yet done: an actual guarded vision read on a real drawing, demonstrated end to end (render_sheet.py exists and is tested; the agent-side counting/identifying task itself hasn't been run yet).
 
 **Milestones / exit criteria**
-- On a test plan set, zero invented quantities, and every cross-check flag raised is a real, correct catch (verified by human review).
-- Fails if: any single vision read is reported as a final number without either a citation or a flag.
+- On a test plan set, zero invented quantities, and every cross-check flag raised is a real, correct catch (verified by human review). Met so far on the one cross-check built.
+- Fails if: any single vision read is reported as a final number without either a citation or a flag. Not yet tested against a real vision read — open.
 
 ## Phase 3 — Output assembly
 **Tasks**

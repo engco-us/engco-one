@@ -1,0 +1,10 @@
+{
+  "_purpose": "General order-of-magnitude ranges for flagging an extracted quantity as implausible, not for pricing. These are broad industry rules-of-thumb, not authoritative or project-specific — a value outside range means 'a human should look at this,' not 'this is wrong.' A value inside range is not proof of correctness either, just not an obvious red flag.",
+  "ranges": [
+    {"category": "structural_steel_framing", "unit": "lb/sf_gross", "low": 6, "high": 40, "note": "Light steel framing (residential-scale) to heavier commercial/mid-rise steel frame. Concrete or wood structures are far outside this and shouldn't be checked against it."},
+    {"category": "concrete_foundation", "unit": "cy/sf_gross", "low": 0.03, "high": 0.15, "note": "Typical spread/mat foundation range. Deep foundations (drilled piers into rock, like Nueces) run higher — flag, don't reject."},
+    {"category": "gross_sf_per_dwelling_unit", "unit": "sf/unit", "low": 550, "high": 2200, "note": "Pure multifamily residential only. Do NOT apply to a mixed-use building's blended GSF/unit — non-residential program area will push it outside this range for a reason that isn't an error (see Nueces: 2,147 sf/unit blended across a mosque + 36 units, not a red flag, just not a pure-residential ratio)."},
+    {"category": "parking_stalls_per_dwelling_unit", "unit": "stalls/unit", "low": 0.0, "high": 2.0, "note": "0 is valid and common in reduced-parking overlay districts (e.g. near a university) — don't flag 0 as an error without checking for that context first."},
+    {"category": "roofing_area_vs_gross_sf", "unit": "ratio", "low": 0.10, "high": 1.05, "note": "Roof footprint as a fraction of total GSF; low end for tall multi-story buildings, near 1.0 for single-story."}
+  ]
+}
