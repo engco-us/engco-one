@@ -59,7 +59,7 @@ This is the build-out of the **Preconstruction / Estimating** function already a
 - Re-run the entire golden set after every round of fixes; track the score over time.
 
 **Milestones / exit criteria**
-- Hits the defined bar — **95%+ of quantities within ±5% of ground truth, 0% invented quantities, 100% citation coverage** — across the full golden set, on two consecutive full runs (not a fluke).
+- Hits the defined bar (set by Yusuf, 2026-09-14) — **every quantity within 3% of ground truth, 0% invented quantities, 100% citation coverage** — across the full golden set, on two consecutive full runs (not a fluke).
 - Fails if: the invented-quantity rate is ever above zero. This is the one number with no tolerance.
 
 ## Phase 6 — Controlled real-world trust
