@@ -149,6 +149,28 @@
       "page": 10
     },
     {
+      "id": "txdot-angelina-row-count",
+      "extractor": "extract_txdot_eq.py",
+      "field": "row_count",
+      "expected_value": 35,
+      "confidence": "self_consistent_only",
+      "verification_note": "Manually counted from the raw PDF text.",
+      "source_url": "https://ftp.txdot.gov/plans/State-Let-Construction/2025/06%20June/06%20Plans/Angelina%202553-01-116.pdf",
+      "local_path": "/tmp/txdot_test2/angelina.pdf",
+      "page": 21
+    },
+    {
+      "id": "txdot-bastrop-row-count-p35",
+      "extractor": "extract_txdot_eq.py",
+      "field": "row_count",
+      "expected_value": 15,
+      "confidence": "self_consistent_only",
+      "verification_note": "One sub-sheet of a large 815-page, multi-CSJ project; manually counted.",
+      "source_url": "https://ftp.txdot.gov/plans/State-Let-Construction/2025/06%20June/06%20Plans/Bastrop%200265-03-043.pdf",
+      "local_path": "/tmp/txdot_test2/bastrop.pdf",
+      "page": 35
+    },
+    {
       "id": "txdot-martin-row-count",
       "extractor": "extract_txdot_eq.py",
       "field": "row_count",
