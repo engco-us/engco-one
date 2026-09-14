@@ -1,0 +1,200 @@
+{
+  "project_name": "Nueces Mosque & Residential Tower (23015)",
+  "line_count": 10,
+  "lines": [
+    {
+      "csi_division": "00",
+      "csi_division_name": "General / Code Summary",
+      "item": "Total gross building area",
+      "quantity": 77315,
+      "unit": "sf",
+      "confidence": "cross_checked",
+      "citations": [
+        {
+          "source_file": "00 23015 GEN Permit 2025-1024.pdf",
+          "source_page": 2,
+          "source_snippet": "TOTAL BUILDING GROSS SF: 77,315; cross-checked against sum of 6 per-floor areas (exact match)"
+        }
+      ],
+      "note": "",
+      "unit_rate": null,
+      "rate_source": null,
+      "total": null
+    },
+    {
+      "csi_division": "00",
+      "csi_division_name": "General / Code Summary",
+      "item": "Total dwelling units",
+      "quantity": 36,
+      "unit": "units",
+      "confidence": "single_source",
+      "citations": [
+        {
+          "source_file": "00 23015 GEN Permit 2025-1024.pdf",
+          "source_page": 2,
+          "source_snippet": "TOTAL UNIT COUNT: 36"
+        }
+      ],
+      "note": "Not independently cross-checked against a unit-by-unit schedule; single clean text extraction only.",
+      "unit_rate": null,
+      "rate_source": null,
+      "total": null
+    },
+    {
+      "csi_division": "00",
+      "csi_division_name": "General / Code Summary",
+      "item": "Total stories",
+      "quantity": 6,
+      "unit": "stories",
+      "confidence": "single_source",
+      "citations": [
+        {
+          "source_file": "00 23015 GEN Permit 2025-1024.pdf",
+          "source_page": 2,
+          "source_snippet": "TOTAL: 6 STORIES"
+        }
+      ],
+      "note": "",
+      "unit_rate": null,
+      "rate_source": null,
+      "total": null
+    },
+    {
+      "csi_division": "03",
+      "csi_division_name": "Concrete / Deep Foundations",
+      "item": "Pier caps, mark PC2 (36x36, over 1 pier)",
+      "quantity": 1,
+      "unit": "ea",
+      "confidence": "cross_checked",
+      "citations": [
+        {
+          "source_file": "04 23015 STRUCT Permit 2025-1023.pdf",
+          "source_page": 7,
+          "source_snippet": "Schedule row PC2 + 1 plan callout, text-occurrence method"
+        },
+        {
+          "source_file": "04 23015 STRUCT Permit 2025-1023.pdf",
+          "source_page": 8,
+          "source_snippet": "Confirmed on second foundation-plan sheet"
+        }
+      ],
+      "note": "",
+      "unit_rate": null,
+      "rate_source": null,
+      "total": null
+    },
+    {
+      "csi_division": "03",
+      "csi_division_name": "Concrete / Deep Foundations",
+      "item": "Pier caps, mark PC3 (36x36, over 1 pier)",
+      "quantity": 4,
+      "unit": "ea",
+      "confidence": "cross_checked",
+      "citations": [
+        {
+          "source_file": "04 23015 STRUCT Permit 2025-1023.pdf",
+          "source_page": 8,
+          "source_snippet": "4 plan callouts via text-occurrence method, matching vision count"
+        },
+        {
+          "source_file": "04 23015 STRUCT Permit 2025-1023.pdf",
+          "source_page": 7,
+          "source_snippet": "Vision count of 4 distinct plan locations (Family Toilet, REC 101, and 2 along south curved wall)"
+        }
+      ],
+      "note": "Page 7's own text extraction initially undercounted at 3 (likely dense-text overlap); resolved using page 8 and the vision count together, not picked arbitrarily.",
+      "unit_rate": null,
+      "rate_source": null,
+      "total": null
+    },
+    {
+      "csi_division": "03",
+      "csi_division_name": "Concrete / Deep Foundations",
+      "item": "Pier caps, mark PC4 (11'-6\"x11'-6\", over 4 piers each)",
+      "quantity": 2,
+      "unit": "ea",
+      "confidence": "cross_checked",
+      "citations": [
+        {
+          "source_file": "04 23015 STRUCT Permit 2025-1023.pdf",
+          "source_page": 7,
+          "source_snippet": "2 plan callouts (Sister's Wudu side + Brother's Wudu side, mirrored), text + vision agree"
+        }
+      ],
+      "note": "",
+      "unit_rate": null,
+      "rate_source": null,
+      "total": null
+    },
+    {
+      "csi_division": "03",
+      "csi_division_name": "Concrete / Deep Foundations",
+      "item": "Pier caps, mark PC5 (round, over 1 pier)",
+      "quantity": 2,
+      "unit": "ea",
+      "confidence": "cross_checked",
+      "citations": [
+        {
+          "source_file": "04 23015 STRUCT Permit 2025-1023.pdf",
+          "source_page": 7,
+          "source_snippet": "2 plan callouts (Gallery C101 + Gallery C100, mirrored), text + vision agree"
+        }
+      ],
+      "note": "",
+      "unit_rate": null,
+      "rate_source": null,
+      "total": null
+    },
+    {
+      "csi_division": "03",
+      "csi_division_name": "Concrete / Deep Foundations",
+      "item": "Pier caps, mark PC1 (24\" dia, over 1 pier)",
+      "quantity": null,
+      "unit": "ea",
+      "confidence": "unresolved",
+      "citations": [],
+      "note": "PC1 appears in the pier cap schedule (Struct p7) but was never found as an actual plan callout on any of the 3 sheets classified as foundation_plan (pages 7, 8, 26). Needs a human to check the source PDF directly \u2014 not guessed at.",
+      "unit_rate": null,
+      "rate_source": null,
+      "total": null
+    },
+    {
+      "csi_division": "03",
+      "csi_division_name": "Concrete / Deep Foundations",
+      "item": "Total individual drilled piers (derived: sum of cap_count \u00d7 piers-per-cap)",
+      "quantity": 15,
+      "unit": "ea",
+      "confidence": "unresolved",
+      "citations": [
+        {
+          "source_file": "04 23015 STRUCT Permit 2025-1023.pdf",
+          "source_page": 7,
+          "source_snippet": "PC2(1\u00d71) + PC3(4\u00d71) + PC4(2\u00d74) + PC5(2\u00d71) = 15; excludes PC1, which is unresolved"
+        }
+      ],
+      "note": "Marked unresolved (not cross_checked) despite having a citation, because it is INCOMPLETE by construction \u2014 excludes PC1's unknown quantity. The true total is >=15, not =15. This is a deliberate exception: a derived figure known to be a floor, not a fact.",
+      "unit_rate": null,
+      "rate_source": null,
+      "total": null
+    },
+    {
+      "csi_division": "00",
+      "csi_division_name": "Summary / Pricing",
+      "item": "Total construction cost estimate (blended $/SF, AACE Class 4)",
+      "quantity": 77315,
+      "unit": "sf",
+      "confidence": "benchmark_only",
+      "citations": [
+        {
+          "source_file": "00 23015 GEN Permit 2025-1024.pdf",
+          "source_page": 2,
+          "source_snippet": "Applied to the cross-checked 77,315 SF total above"
+        }
+      ],
+      "note": "Midpoint of a $220-300/SF blended benchmark range (Austin market, Type I-A/III-A mixed construction, drilled-pier foundation, premium envelope) derived earlier this session from the real scope drivers found in these drawings \u2014 see SOP-023. NOT a vendor quote or a bottom-up sum of the line items above; those are quantities only, not yet priced, because no real unit-cost source exists for them yet (e.g. no vendor rate for a drilled pier cap of a given size). Reported as a single-point midpoint here for the table; the real range is $17.0M-$23.2M hard cost before GC/OH/fee and soft costs.",
+      "unit_rate": 260.0,
+      "rate_source": "benchmark",
+      "total": 20101900.0
+    }
+  ]
+}
