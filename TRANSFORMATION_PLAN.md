@@ -16,25 +16,24 @@ Take ENGCO from ad-hoc, undocumented operations to a structured company running 
 - One test project (ENG-2026-001, a real public Harris County civil project) scaffolded and validated end to end — proves the mechanics work.
 - Zero real employees onboarded. Zero real ENGCO projects in the system. Zero SOPs written (only cataloged).
 
-## Phase 1 — Governance activation
+## Phase 1 — Governance activation (DONE)
+- Accountability Chart built with real names: `docs/accountability_chart.md`. Seats are functional accountability, not formal departments — decision recorded, revisit at higher headcount.
+- Scope call: full 7-agent / 22-SOP rollout is over-built for current headcount (~8, everyone-does-everything). Deferred to Phase 5. Lean start below is the real Phase 2/3.
+- Deferred: formal V/TO and quarterly Rocks — revisit once the lean rhythm (below) is running for a few weeks, not before.
+
+## Phase 2 — Lean start (replaces original Phase 2 scope)
 **Milestones**
-- Build the missing EOS layer: Vision/Traction Organizer (1-page), Accountability Chart (real names against the 7 seats already implied by the Agent Registry's accountable-owner column).
-- Name and confirm the actual human accountable owner for each of the 7 agents and each of the 22 SOPs (currently role placeholders, not people).
-- Define quarterly Rocks (top 3-5 priorities) for this transformation itself.
+- Weekly scorecard: active projects, proposals out, cash position — one shared number set, reviewed weekly.
+- Two SOPs only:
+  - SOP-001 Project intake & numbering — fixes Shehab 1 / Waqas both touching leads with no single owner.
+  - Daily field reporting — fixes Shawqi having zero backup or record from the field.
+- One agent to Pilot: A-05 (Construction/Field) — drafts field reports for Shawqi's review only. No other agent moves off Draft in this phase.
 
 **Evaluation / exit criteria**
-- Every agent and every SOP row has a real named owner, not a role placeholder.
-- V/TO exists and is signed off by leadership.
-- Fails if: any agent or SOP still shows a generic role instead of a person.
-
-## Phase 2 — Core SOPs (project-flow, High priority)
-**Milestones**
-- Write the 15 project-flow SOPs from the backlog (SOP-001, 003-013, 015-016, 022), each reviewed and approved by its named owner.
-- Each moves Missing → Draft → Under Review → Approved (ISO document-control states) in the Knowledge Register.
-
-**Evaluation / exit criteria**
-- 15/15 SOPs at "Approved" status with a named approver and review date.
-- Fails if: any SOP is approved without its named owner's actual sign-off recorded.
+- Scorecard reviewed weekly for 3 consecutive weeks, not skipped.
+- Both SOPs at "Approved" with named owner sign-off.
+- A-05 has 5 supervised runs logged with human corrections captured.
+- Fails if: scorecard goes stale, or A-05 output is used without Shawqi's review.
 
 ## Phase 3 — First real pilot (live project, not a sample)
 **Milestones**
