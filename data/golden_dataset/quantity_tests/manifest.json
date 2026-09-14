@@ -91,6 +91,16 @@
       "local_path": "/tmp/rescheck_test/rescheckez.pdf"
     },
     {
+      "id": "rescheck-sagharbor",
+      "extractor": "extract_rescheck.py",
+      "field": "conditioned_floor_area_sf",
+      "expected_value": 3757,
+      "confidence": "self_consistent_only",
+      "verification_note": "Real Sag Harbor, NY project.",
+      "source_url": "https://www.rescheck.info/wp-content/uploads/2019/02/Sag-Harbor-New-York-Sample-Rescheck.pdf",
+      "local_path": "/tmp/rescheck_test2/sagharbor.pdf"
+    },
+    {
       "id": "rescheck-sample2021",
       "extractor": "extract_rescheck.py",
       "field": "conditioned_floor_area_sf",
