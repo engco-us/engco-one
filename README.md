@@ -10,6 +10,7 @@ The operating system for ENGCO's integrated engineering, permitting, and constru
   - `new_project.py` — scaffolds a project's folder tree + registry entry
   - `validate_record.py` — checks a project record against required fields/vocab before it's trusted
   - `run_agent_eval.py` — prints an agent's required eval cases for consistent testing
+  - `scorecard.py` — logs/checks the weekly scorecard (active projects, proposals out, cash position)
 - `projects/` — actual project folders, one per active job
 
 ## Status

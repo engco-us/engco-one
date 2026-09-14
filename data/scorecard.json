@@ -1,0 +1,19 @@
+{
+  "metrics": [
+    "active_projects",
+    "proposals_out",
+    "cash_position"
+  ],
+  "cadence_days": 7,
+  "entries": [
+    {
+      "week_of": "2026-09-14",
+      "active_projects": 1,
+      "proposals_out": 0,
+      "cash_position": 0.0,
+      "recorded_by": "Yusuf",
+      "notes": "Baseline entry \u2014 real numbers TBD, seeded to prove the mechanism works",
+      "recorded_at": "2026-09-14T09:33:38"
+    }
+  ]
+}
