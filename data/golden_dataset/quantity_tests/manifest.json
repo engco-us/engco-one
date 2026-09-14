@@ -90,6 +90,34 @@
       "local_path": "/tmp/rescheck_test/sample2021.pdf"
     },
     {
+      "id": "comcheck-workman-slimchickens",
+      "extractor": "extract_comcheck.py",
+      "field": "floor_area_sf",
+      "expected_value": 2737,
+      "confidence": "self_consistent_only",
+      "source_url": "https://workmancommercial.com/wp-content/uploads/2021/10/05-COMchecks.pdf",
+      "local_path": "/tmp/comcheck_test2/workman.pdf"
+    },
+    {
+      "id": "comcheck-rodgers-dublinpark",
+      "extractor": "extract_comcheck.py",
+      "field": "floor_area_sf",
+      "expected_value": 5959,
+      "confidence": "self_consistent_only",
+      "source_url": "https://rodgersincorporated.com/wp-content/uploads/2023/09/M_COMcheck.pdf",
+      "local_path": "/tmp/comcheck_test2/rodgers.pdf"
+    },
+    {
+      "id": "rescheck-nola-permit",
+      "extractor": "extract_rescheck.py",
+      "field": "conditioned_floor_area_sf",
+      "expected_value": 2813,
+      "confidence": "self_consistent_only",
+      "verification_note": "Real New Orleans city permit-portal document (onestopapp.nola.gov) — a genuine filed permit record, not a vendor sample, though no second independent source checked for this specific value.",
+      "source_url": "https://onestopapp.nola.gov/GetDocument.aspx?DocID=6545796",
+      "local_path": "/tmp/rescheck_test2/nola.pdf"
+    },
+    {
       "id": "rescheck-wisconsin",
       "extractor": "extract_rescheck.py",
       "field": "conditioned_floor_area_sf",
