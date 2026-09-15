@@ -1,6 +1,6 @@
 {
   "project_name": "6659 Satsuma Dr Warehouse (ENG-2026-004)",
-  "line_count": 25,
+  "line_count": 26,
   "lines": [
     {
       "csi_division": "02",
@@ -357,7 +357,26 @@
           "source_snippet": "Same 7 pipe runs, identical lengths \u2014 C4 Drainage Plan, independent sheet"
         }
       ],
-      "note": "Sum of 7 real labeled segments. Cross-checked: the same 7 runs, same lengths, appear on two independently drawn sheets (C3.1 and C4) and agree exactly. Caught a real error doing this properly: an earlier visual read of one segment said '70.0 LF 14\" HDBE' \u2014 the real text says '70.0 LF 18\" HDPE'. Text corrected the vision misread, exactly per this toolkit's own rule (text is the source of truth, vision never overrides it).",
+      "note": "Sum of 7 real labeled segments. Cross-checked: the same 7 runs, same lengths, appear on two independently drawn sheets (C3.1 and C4) and agree exactly. Caught a real error doing this properly: an earlier visual read of one segment said '70.0 LF 14\" HDBE' \u2014 the real text says '70.0 LF 18\" HDPE'. Text corrected the vision misread, exactly per this toolkit's own rule (text is the source of truth, vision never overrides it). Does NOT include an 8th 18\" HDPE value ('11.4 LF @ 0.22%') found on this same sheet's Section A-A profile \u2014 see the separate unresolved line below; it's flagged out rather than silently folded into this cross-checked figure.",
+      "unit_rate": null,
+      "rate_source": null,
+      "total": null
+    },
+    {
+      "csi_division": "33",
+      "csi_division_name": "Utilities \u2014 Storm Sewer",
+      "item": "Possible additional 18-inch HDPE segment (unconfirmed)",
+      "quantity": null,
+      "unit": "lf",
+      "confidence": "unresolved",
+      "citations": [
+        {
+          "source_file": "Civil Plans - 6659 SATSUMA DR HOUSTON TX 77041- 8.25.2026..pdf",
+          "source_page": 9,
+          "source_snippet": "11.4 LF 18\" HDPE @ 0.22% \u2014 printed in the Section A-A profile detail, C3.1 Detention Pond Details Plan"
+        }
+      ],
+      "note": "A real, found gap in this report's first pass, disclosed rather than left buried: this value was silently dropped from the original 7-segment total without being checked. Re-verified now \u2014 it does NOT appear anywhere on the independent C4 Drainage Plan (the sheet that cross-confirmed the other 7 segments), and no matching label exists in the plan view either. Two explanations are equally plausible without the CAD file: a real 8th pipe run inside the pond structure that the plan view never separately labeled, or a partial/illustrative sub-length of a segment already counted, shown only for the profile's own elevation bookkeeping. If real and additional, total 18\" HDPE would be 536.2 LF, not 524.8. Not guessed either way \u2014 a human should trace Section A-A against the plan view directly, or check the CAD file, before pricing.",
       "unit_rate": null,
       "rate_source": null,
       "total": null
@@ -437,7 +456,7 @@
     {
       "csi_division": "33",
       "csi_division_name": "Utilities \u2014 Storm Sewer",
-      "item": "Total storm sewer pipe, all sizes",
+      "item": "Total storm sewer pipe, all sizes (confirmed segments only)",
       "quantity": 796.7,
       "unit": "lf",
       "confidence": "cross_checked",
@@ -445,7 +464,7 @@
         {
           "source_file": "Civil Plans - 6659 SATSUMA DR HOUSTON TX 77041- 8.25.2026..pdf",
           "source_page": 9,
-          "source_snippet": "Sum of all 9 real pipe-run segments above"
+          "source_snippet": "Sum of the 10 cross-checked segments above (7\u00d718\", 1\u00d715\", 1\u00d712\", 1\u00d74\")"
         },
         {
           "source_file": "Civil Plans - 6659 SATSUMA DR HOUSTON TX 77041- 8.25.2026..pdf",
@@ -453,7 +472,7 @@
           "source_snippet": "Same total, independently confirmed on C4"
         }
       ],
-      "note": "",
+      "note": "Excludes the unconfirmed 11.4 LF segment above. If that turns out to be real and additional, the true total is 808.1 LF, not 796.7.",
       "unit_rate": null,
       "rate_source": null,
       "total": null

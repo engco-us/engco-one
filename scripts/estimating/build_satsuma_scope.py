@@ -145,7 +145,26 @@ lines += [
               "two independently drawn sheets (C3.1 and C4) and agree exactly. Caught a real error doing "
               "this properly: an earlier visual read of one segment said '70.0 LF 14\" HDBE' — the real "
               "text says '70.0 LF 18\" HDPE'. Text corrected the vision misread, exactly per this "
-              "toolkit's own rule (text is the source of truth, vision never overrides it)."),
+              "toolkit's own rule (text is the source of truth, vision never overrides it). Does NOT "
+              "include an 8th 18\" HDPE value ('11.4 LF @ 0.22%') found on this same sheet's Section A-A "
+              "profile — see the separate unresolved line below; it's flagged out rather than silently "
+              "folded into this cross-checked figure."),
+    ),
+    build_line(
+        csi_division="33", csi_division_name="Utilities — Storm Sewer",
+        item="Possible additional 18-inch HDPE segment (unconfirmed)", quantity=None, unit="lf",
+        confidence="unresolved",
+        citations=[Citation(PLANS, 9, "11.4 LF 18\" HDPE @ 0.22% — printed in the Section A-A profile detail, C3.1 Detention Pond Details Plan")],
+        note=("A real, found gap in this report's first pass, disclosed rather than left buried: this "
+              "value was silently dropped from the original 7-segment total without being checked. "
+              "Re-verified now — it does NOT appear anywhere on the independent C4 Drainage Plan (the "
+              "sheet that cross-confirmed the other 7 segments), and no matching label exists in the "
+              "plan view either. Two explanations are equally plausible without the CAD file: a real 8th "
+              "pipe run inside the pond structure that the plan view never separately labeled, or a "
+              "partial/illustrative sub-length of a segment already counted, shown only for the "
+              "profile's own elevation bookkeeping. If real and additional, total 18\" HDPE would be "
+              "536.2 LF, not 524.8. Not guessed either way — a human should trace Section A-A against "
+              "the plan view directly, or check the CAD file, before pricing."),
     ),
     build_line(
         csi_division="33", csi_division_name="Utilities — Storm Sewer",
@@ -177,9 +196,10 @@ lines += [
     ),
     build_line(
         csi_division="33", csi_division_name="Utilities — Storm Sewer",
-        item="Total storm sewer pipe, all sizes", quantity=796.7, unit="lf",
+        item="Total storm sewer pipe, all sizes (confirmed segments only)", quantity=796.7, unit="lf",
         confidence="cross_checked",
-        citations=[Citation(PLANS, 9, "Sum of all 9 real pipe-run segments above"), Citation(PLANS, 10, "Same total, independently confirmed on C4")],
+        citations=[Citation(PLANS, 9, "Sum of the 10 cross-checked segments above (7×18\", 1×15\", 1×12\", 1×4\")"), Citation(PLANS, 10, "Same total, independently confirmed on C4")],
+        note="Excludes the unconfirmed 11.4 LF segment above. If that turns out to be real and additional, the true total is 808.1 LF, not 796.7.",
     ),
 
     # --- Real, honest gaps: not measured this pass ---
