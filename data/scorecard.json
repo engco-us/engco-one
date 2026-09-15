@@ -17,12 +17,12 @@
     },
     {
       "week_of": "2026-09-15",
-      "active_projects": 2,
+      "active_projects": 3,
       "proposals_out": 1,
       "cash_position": 0.0,
       "recorded_by": "Yusuf",
       "notes": "active_projects/proposals_out auto-derived from project_registry.json; proposals: ENG-2026-002 \u2014 LSC Kingwood Fire Science Water Line and Septic System",
-      "recorded_at": "2026-09-15T11:56:04"
+      "recorded_at": "2026-09-15T12:06:40"
     }
   ]
 }

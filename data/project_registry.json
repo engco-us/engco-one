@@ -94,6 +94,21 @@
       "forecast_finish": null,
       "last_update": "2026-09-15",
       "folder": "projects/ENG-2026-002-LSC-Kingwood-Fire-Science-Water-Line-and-Septic-System-Porter"
+    },
+    {
+      "project_id": "ENG-2026-003",
+      "project_name": "T",
+      "city": "Houston",
+      "client": "Ali",
+      "project_type": "Building ",
+      "current_phase": "Discovery",
+      "overall_status": "On Track",
+      "project_manager": "",
+      "contract_value": 0,
+      "start_date": "2026-09-15",
+      "forecast_finish": null,
+      "last_update": "2026-09-15",
+      "folder": "projects/ENG-2026-003-T-Houston"
     }
   ]
 }

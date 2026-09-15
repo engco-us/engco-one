@@ -58,6 +58,10 @@ def main():
             "notes": args.notes,
             "recorded_at": datetime.now().isoformat(timespec="seconds"),
         }
+        # Replace any existing entry for the same week rather than piling up
+        # duplicates — logging again for a week you already logged should
+        # correct that entry, not create a second one.
+        data["entries"] = [e for e in data["entries"] if e["week_of"] != args.week_of]
         data["entries"].append(entry)
         data["entries"].sort(key=lambda e: e["week_of"])
         save(data)

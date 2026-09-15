@@ -26,6 +26,12 @@ export async function getAgents() {
   return (await readJson<{ agents: Agent[] }>('agent_registry.json')).agents;
 }
 
+export type UnownedFunction = { function: string; status: string; note: string };
+
+export async function getAgentRegistry() {
+  return readJson<{ agents: Agent[]; unowned_functions?: UnownedFunction[] }>('agent_registry.json');
+}
+
 export async function getProjects() {
   return (await readJson<{ projects: Project[] }>('project_registry.json')).projects;
 }
