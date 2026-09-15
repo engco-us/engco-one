@@ -86,15 +86,119 @@ lines += [
     ),
     build_line(
         csi_division="00", csi_division_name="General",
-        item="Number of buildings on site", quantity=None, unit="ea",
+        item="Number of buildings on site", quantity=2, unit="ea",
+        confidence="cross_checked",
+        citations=[Citation(PLANS, 7, "'PROP. BUILDING 1' and 'PROP. BUILDING 2' — two distinct, real labeled callouts on the C2.1 Site Plan")],
+        note=("Originally left unresolved because the count printed on the Harris County Engineering "
+              "Dept. Review Sheet ('NO. OF BUILDINGS = 2') isn't in that page's extractable text layer. "
+              "Resolved properly instead of left stuck: the real Site Plan (C2.1) independently confirms "
+              "2 buildings via its own real text labels — same number, second real source, now trustworthy."),
+    ),
+
+    # --- Building & yard areas, real text off the C2.1 Site Plan (sheet 4/22, PDF page 7) ---
+    build_line(
+        csi_division="03", csi_division_name="Concrete / Building Slabs",
+        item="Building 1 footprint (Warehouse 1: 3,000 SF + Office: 3,000 SF)", quantity=6000, unit="sf",
+        confidence="schedule_verified",
+        citations=[Citation(PLANS, 7, "PROP. BUILDING 1, 6000 SQ.FT. (PROP. WAREHOUSE 1 3,000 SQ.FT. + OFFICE 3,000 SQ.FT.), FF=117.0' — C2.1 Site Plan")],
+    ),
+    build_line(
+        csi_division="03", csi_division_name="Concrete / Building Slabs",
+        item="Building 2 footprint (Warehouse 2: 3,000 SF + Office: 3,000 SF)", quantity=6000, unit="sf",
+        confidence="schedule_verified",
+        citations=[Citation(PLANS, 7, "PROP. BUILDING 2, 6000 SQ.FT. (PROP. WAREHOUSE 2 + OFFICE 3,000 SQ.FT.), FF=117.0' — C2.1 Site Plan")],
+        note="Total building footprint, both buildings combined: 12,000 SF. Slab thickness/type not shown on this sheet — needed for a concrete volume, not just footprint area.",
+    ),
+    build_line(
+        csi_division="32", csi_division_name="Exterior Improvements — Paving",
+        item="Laydown yard 1 area", quantity=2500.0, unit="sf",
+        confidence="schedule_verified",
+        citations=[Citation(PLANS, 7, "PROP. LAYDOWN YARD 1, 2500.0 SQ.FT. — C2.1 Site Plan")],
+    ),
+    build_line(
+        csi_division="32", csi_division_name="Exterior Improvements — Paving",
+        item="Laydown yard 2 area", quantity=2000.0, unit="sf",
+        confidence="schedule_verified",
+        citations=[Citation(PLANS, 7, "PROP. LAYDOWN YARD 2, 2000.0 SQ.FT. — C2.1 Site Plan")],
+    ),
+    build_line(
+        csi_division="32", csi_division_name="Exterior Improvements — Paving",
+        item="Parking spaces", quantity=None, unit="ea",
         confidence="unresolved",
         citations=[],
-        note=("Visually read as '2' on the Harris County Engineering Dept. Review Sheet ('BUILDING "
-              "PERMITS (NO. OF BUILDINGS = 2)'), but that field is NOT in the PDF's extractable text "
-              "layer — same raster-template issue as the HCFCD sheet, but this particular field has "
-              "no known-position schema built yet. Not reported as a hard number per this toolkit's "
-              "own rule: vision identifies, it doesn't originate a number a report relies on. A human "
-              "should confirm this directly against the sheet before using it."),
+        note=("'PROP. 10 PARKING' is printed twice on the C2.1 Site Plan, once near each building — "
+              "real text, but genuinely ambiguous whether that's 10 total (one shared count referenced "
+              "twice) or 10 per side (20 total). Stall-by-stall counting off the full-size plan would "
+              "resolve it; not guessed at here."),
+    ),
+
+    # --- Storm sewer pipe, real text, cross-checked across two independent sheets ---
+    build_line(
+        csi_division="33", csi_division_name="Utilities — Storm Sewer",
+        item="Storm sewer pipe, 18-inch HDPE", quantity=524.8, unit="lf",
+        confidence="cross_checked",
+        citations=[
+            Citation(PLANS, 9, "7 real pipe-run callouts (26.4, 197.2, 180.4, 29.0, 14.7, 7.1, 70.0 LF) — C3.1 Detention Pond Details Plan"),
+            Citation(PLANS, 10, "Same 7 pipe runs, identical lengths — C4 Drainage Plan, independent sheet"),
+        ],
+        note=("Sum of 7 real labeled segments. Cross-checked: the same 7 runs, same lengths, appear on "
+              "two independently drawn sheets (C3.1 and C4) and agree exactly. Caught a real error doing "
+              "this properly: an earlier visual read of one segment said '70.0 LF 14\" HDBE' — the real "
+              "text says '70.0 LF 18\" HDPE'. Text corrected the vision misread, exactly per this "
+              "toolkit's own rule (text is the source of truth, vision never overrides it)."),
+    ),
+    build_line(
+        csi_division="33", csi_division_name="Utilities — Storm Sewer",
+        item="Storm sewer pipe, 15-inch HDPE", quantity=133.0, unit="lf",
+        confidence="cross_checked",
+        citations=[
+            Citation(PLANS, 9, "133.0 LF 15\" HDPE @ 0.30% — C3.1 Detention Pond Details Plan"),
+            Citation(PLANS, 10, "Same segment, same length — C4 Drainage Plan"),
+        ],
+    ),
+    build_line(
+        csi_division="33", csi_division_name="Utilities — Storm Sewer",
+        item="Storm sewer pipe, 12-inch HDPE", quantity=132.9, unit="lf",
+        confidence="cross_checked",
+        citations=[
+            Citation(PLANS, 9, "132.9 LF 12\" HDPE @ 0.30% — C3.1 Detention Pond Details Plan"),
+            Citation(PLANS, 10, "Same segment, same length — C4 Drainage Plan"),
+        ],
+    ),
+    build_line(
+        csi_division="33", csi_division_name="Utilities — Storm Sewer",
+        item="Restrictor pipe, 4-inch PVC", quantity=6.0, unit="lf",
+        confidence="cross_checked",
+        citations=[
+            Citation(PLANS, 9, "6.0 LF 4\" PVC RESTRICT @ 0.11% — C3.1 Detention Pond Details Plan"),
+            Citation(PLANS, 10, "Same segment, same length — C4 Drainage Plan"),
+        ],
+        note="Matches the 4-inch restrictor pipe size already confirmed from the HCFCD Review Sheet — a third independent agreement on this one dimension.",
+    ),
+    build_line(
+        csi_division="33", csi_division_name="Utilities — Storm Sewer",
+        item="Total storm sewer pipe, all sizes", quantity=796.7, unit="lf",
+        confidence="cross_checked",
+        citations=[Citation(PLANS, 9, "Sum of all 9 real pipe-run segments above"), Citation(PLANS, 10, "Same total, independently confirmed on C4")],
+    ),
+
+    # --- Real, honest gaps: not measured this pass ---
+    build_line(
+        csi_division="32", csi_division_name="Exterior Improvements — Paving",
+        item="Concrete parking / pavement area", quantity=None, unit="sf",
+        confidence="unresolved",
+        citations=[],
+        note=("The C2.1 Site Plan legend distinguishes 'CONCRETE PARKING' from 'PAVEMENT' as two real, "
+              "different hatch patterns, and both are drawn on the plan — but no dimensioned area or "
+              "table was found for either in this pass. Measuring it requires either the CAD file or a "
+              "real area take-off traced against the plan's own graphic scale, not attempted here."),
+    ),
+    build_line(
+        csi_division="31", csi_division_name="Earthwork",
+        item="Cut / fill volume", quantity=None, unit="cy",
+        confidence="unresolved",
+        citations=[],
+        note="C5 Grading Plan and C6 Grading Details exist in this set (sheets 8-9) but weren't checked for a cut/fill summary in this pass — flagged for the next pass, not assumed zero.",
     ),
 ]
 

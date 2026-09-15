@@ -1,6 +1,6 @@
 {
   "project_name": "6659 Satsuma Dr Warehouse (ENG-2026-004)",
-  "line_count": 13,
+  "line_count": 25,
   "lines": [
     {
       "csi_division": "02",
@@ -234,11 +234,252 @@
       "csi_division": "00",
       "csi_division_name": "General",
       "item": "Number of buildings on site",
+      "quantity": 2,
+      "unit": "ea",
+      "confidence": "cross_checked",
+      "citations": [
+        {
+          "source_file": "Civil Plans - 6659 SATSUMA DR HOUSTON TX 77041- 8.25.2026..pdf",
+          "source_page": 7,
+          "source_snippet": "'PROP. BUILDING 1' and 'PROP. BUILDING 2' \u2014 two distinct, real labeled callouts on the C2.1 Site Plan"
+        }
+      ],
+      "note": "Originally left unresolved because the count printed on the Harris County Engineering Dept. Review Sheet ('NO. OF BUILDINGS = 2') isn't in that page's extractable text layer. Resolved properly instead of left stuck: the real Site Plan (C2.1) independently confirms 2 buildings via its own real text labels \u2014 same number, second real source, now trustworthy.",
+      "unit_rate": null,
+      "rate_source": null,
+      "total": null
+    },
+    {
+      "csi_division": "03",
+      "csi_division_name": "Concrete / Building Slabs",
+      "item": "Building 1 footprint (Warehouse 1: 3,000 SF + Office: 3,000 SF)",
+      "quantity": 6000,
+      "unit": "sf",
+      "confidence": "schedule_verified",
+      "citations": [
+        {
+          "source_file": "Civil Plans - 6659 SATSUMA DR HOUSTON TX 77041- 8.25.2026..pdf",
+          "source_page": 7,
+          "source_snippet": "PROP. BUILDING 1, 6000 SQ.FT. (PROP. WAREHOUSE 1 3,000 SQ.FT. + OFFICE 3,000 SQ.FT.), FF=117.0' \u2014 C2.1 Site Plan"
+        }
+      ],
+      "note": "",
+      "unit_rate": null,
+      "rate_source": null,
+      "total": null
+    },
+    {
+      "csi_division": "03",
+      "csi_division_name": "Concrete / Building Slabs",
+      "item": "Building 2 footprint (Warehouse 2: 3,000 SF + Office: 3,000 SF)",
+      "quantity": 6000,
+      "unit": "sf",
+      "confidence": "schedule_verified",
+      "citations": [
+        {
+          "source_file": "Civil Plans - 6659 SATSUMA DR HOUSTON TX 77041- 8.25.2026..pdf",
+          "source_page": 7,
+          "source_snippet": "PROP. BUILDING 2, 6000 SQ.FT. (PROP. WAREHOUSE 2 + OFFICE 3,000 SQ.FT.), FF=117.0' \u2014 C2.1 Site Plan"
+        }
+      ],
+      "note": "Total building footprint, both buildings combined: 12,000 SF. Slab thickness/type not shown on this sheet \u2014 needed for a concrete volume, not just footprint area.",
+      "unit_rate": null,
+      "rate_source": null,
+      "total": null
+    },
+    {
+      "csi_division": "32",
+      "csi_division_name": "Exterior Improvements \u2014 Paving",
+      "item": "Laydown yard 1 area",
+      "quantity": 2500.0,
+      "unit": "sf",
+      "confidence": "schedule_verified",
+      "citations": [
+        {
+          "source_file": "Civil Plans - 6659 SATSUMA DR HOUSTON TX 77041- 8.25.2026..pdf",
+          "source_page": 7,
+          "source_snippet": "PROP. LAYDOWN YARD 1, 2500.0 SQ.FT. \u2014 C2.1 Site Plan"
+        }
+      ],
+      "note": "",
+      "unit_rate": null,
+      "rate_source": null,
+      "total": null
+    },
+    {
+      "csi_division": "32",
+      "csi_division_name": "Exterior Improvements \u2014 Paving",
+      "item": "Laydown yard 2 area",
+      "quantity": 2000.0,
+      "unit": "sf",
+      "confidence": "schedule_verified",
+      "citations": [
+        {
+          "source_file": "Civil Plans - 6659 SATSUMA DR HOUSTON TX 77041- 8.25.2026..pdf",
+          "source_page": 7,
+          "source_snippet": "PROP. LAYDOWN YARD 2, 2000.0 SQ.FT. \u2014 C2.1 Site Plan"
+        }
+      ],
+      "note": "",
+      "unit_rate": null,
+      "rate_source": null,
+      "total": null
+    },
+    {
+      "csi_division": "32",
+      "csi_division_name": "Exterior Improvements \u2014 Paving",
+      "item": "Parking spaces",
       "quantity": null,
       "unit": "ea",
       "confidence": "unresolved",
       "citations": [],
-      "note": "Visually read as '2' on the Harris County Engineering Dept. Review Sheet ('BUILDING PERMITS (NO. OF BUILDINGS = 2)'), but that field is NOT in the PDF's extractable text layer \u2014 same raster-template issue as the HCFCD sheet, but this particular field has no known-position schema built yet. Not reported as a hard number per this toolkit's own rule: vision identifies, it doesn't originate a number a report relies on. A human should confirm this directly against the sheet before using it.",
+      "note": "'PROP. 10 PARKING' is printed twice on the C2.1 Site Plan, once near each building \u2014 real text, but genuinely ambiguous whether that's 10 total (one shared count referenced twice) or 10 per side (20 total). Stall-by-stall counting off the full-size plan would resolve it; not guessed at here.",
+      "unit_rate": null,
+      "rate_source": null,
+      "total": null
+    },
+    {
+      "csi_division": "33",
+      "csi_division_name": "Utilities \u2014 Storm Sewer",
+      "item": "Storm sewer pipe, 18-inch HDPE",
+      "quantity": 524.8,
+      "unit": "lf",
+      "confidence": "cross_checked",
+      "citations": [
+        {
+          "source_file": "Civil Plans - 6659 SATSUMA DR HOUSTON TX 77041- 8.25.2026..pdf",
+          "source_page": 9,
+          "source_snippet": "7 real pipe-run callouts (26.4, 197.2, 180.4, 29.0, 14.7, 7.1, 70.0 LF) \u2014 C3.1 Detention Pond Details Plan"
+        },
+        {
+          "source_file": "Civil Plans - 6659 SATSUMA DR HOUSTON TX 77041- 8.25.2026..pdf",
+          "source_page": 10,
+          "source_snippet": "Same 7 pipe runs, identical lengths \u2014 C4 Drainage Plan, independent sheet"
+        }
+      ],
+      "note": "Sum of 7 real labeled segments. Cross-checked: the same 7 runs, same lengths, appear on two independently drawn sheets (C3.1 and C4) and agree exactly. Caught a real error doing this properly: an earlier visual read of one segment said '70.0 LF 14\" HDBE' \u2014 the real text says '70.0 LF 18\" HDPE'. Text corrected the vision misread, exactly per this toolkit's own rule (text is the source of truth, vision never overrides it).",
+      "unit_rate": null,
+      "rate_source": null,
+      "total": null
+    },
+    {
+      "csi_division": "33",
+      "csi_division_name": "Utilities \u2014 Storm Sewer",
+      "item": "Storm sewer pipe, 15-inch HDPE",
+      "quantity": 133.0,
+      "unit": "lf",
+      "confidence": "cross_checked",
+      "citations": [
+        {
+          "source_file": "Civil Plans - 6659 SATSUMA DR HOUSTON TX 77041- 8.25.2026..pdf",
+          "source_page": 9,
+          "source_snippet": "133.0 LF 15\" HDPE @ 0.30% \u2014 C3.1 Detention Pond Details Plan"
+        },
+        {
+          "source_file": "Civil Plans - 6659 SATSUMA DR HOUSTON TX 77041- 8.25.2026..pdf",
+          "source_page": 10,
+          "source_snippet": "Same segment, same length \u2014 C4 Drainage Plan"
+        }
+      ],
+      "note": "",
+      "unit_rate": null,
+      "rate_source": null,
+      "total": null
+    },
+    {
+      "csi_division": "33",
+      "csi_division_name": "Utilities \u2014 Storm Sewer",
+      "item": "Storm sewer pipe, 12-inch HDPE",
+      "quantity": 132.9,
+      "unit": "lf",
+      "confidence": "cross_checked",
+      "citations": [
+        {
+          "source_file": "Civil Plans - 6659 SATSUMA DR HOUSTON TX 77041- 8.25.2026..pdf",
+          "source_page": 9,
+          "source_snippet": "132.9 LF 12\" HDPE @ 0.30% \u2014 C3.1 Detention Pond Details Plan"
+        },
+        {
+          "source_file": "Civil Plans - 6659 SATSUMA DR HOUSTON TX 77041- 8.25.2026..pdf",
+          "source_page": 10,
+          "source_snippet": "Same segment, same length \u2014 C4 Drainage Plan"
+        }
+      ],
+      "note": "",
+      "unit_rate": null,
+      "rate_source": null,
+      "total": null
+    },
+    {
+      "csi_division": "33",
+      "csi_division_name": "Utilities \u2014 Storm Sewer",
+      "item": "Restrictor pipe, 4-inch PVC",
+      "quantity": 6.0,
+      "unit": "lf",
+      "confidence": "cross_checked",
+      "citations": [
+        {
+          "source_file": "Civil Plans - 6659 SATSUMA DR HOUSTON TX 77041- 8.25.2026..pdf",
+          "source_page": 9,
+          "source_snippet": "6.0 LF 4\" PVC RESTRICT @ 0.11% \u2014 C3.1 Detention Pond Details Plan"
+        },
+        {
+          "source_file": "Civil Plans - 6659 SATSUMA DR HOUSTON TX 77041- 8.25.2026..pdf",
+          "source_page": 10,
+          "source_snippet": "Same segment, same length \u2014 C4 Drainage Plan"
+        }
+      ],
+      "note": "Matches the 4-inch restrictor pipe size already confirmed from the HCFCD Review Sheet \u2014 a third independent agreement on this one dimension.",
+      "unit_rate": null,
+      "rate_source": null,
+      "total": null
+    },
+    {
+      "csi_division": "33",
+      "csi_division_name": "Utilities \u2014 Storm Sewer",
+      "item": "Total storm sewer pipe, all sizes",
+      "quantity": 796.7,
+      "unit": "lf",
+      "confidence": "cross_checked",
+      "citations": [
+        {
+          "source_file": "Civil Plans - 6659 SATSUMA DR HOUSTON TX 77041- 8.25.2026..pdf",
+          "source_page": 9,
+          "source_snippet": "Sum of all 9 real pipe-run segments above"
+        },
+        {
+          "source_file": "Civil Plans - 6659 SATSUMA DR HOUSTON TX 77041- 8.25.2026..pdf",
+          "source_page": 10,
+          "source_snippet": "Same total, independently confirmed on C4"
+        }
+      ],
+      "note": "",
+      "unit_rate": null,
+      "rate_source": null,
+      "total": null
+    },
+    {
+      "csi_division": "32",
+      "csi_division_name": "Exterior Improvements \u2014 Paving",
+      "item": "Concrete parking / pavement area",
+      "quantity": null,
+      "unit": "sf",
+      "confidence": "unresolved",
+      "citations": [],
+      "note": "The C2.1 Site Plan legend distinguishes 'CONCRETE PARKING' from 'PAVEMENT' as two real, different hatch patterns, and both are drawn on the plan \u2014 but no dimensioned area or table was found for either in this pass. Measuring it requires either the CAD file or a real area take-off traced against the plan's own graphic scale, not attempted here.",
+      "unit_rate": null,
+      "rate_source": null,
+      "total": null
+    },
+    {
+      "csi_division": "31",
+      "csi_division_name": "Earthwork",
+      "item": "Cut / fill volume",
+      "quantity": null,
+      "unit": "cy",
+      "confidence": "unresolved",
+      "citations": [],
+      "note": "C5 Grading Plan and C6 Grading Details exist in this set (sheets 8-9) but weren't checked for a cut/fill summary in this pass \u2014 flagged for the next pass, not assumed zero.",
       "unit_rate": null,
       "rate_source": null,
       "total": null
