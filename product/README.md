@@ -7,12 +7,20 @@ The primary surface is `/workspace`: pick a project, describe the outcome you ne
 ## Local development
 
 ```bash
+docker compose up -d   # starts local Postgres on 5432 (engco/engco/engco)
 npm install
-npm run db:setup      # creates .env — choose local Docker Postgres or point at a remote one
 npm run db:migrate
-npm run db:seed        # creates test@test.com / admin123
+npm run db:seed         # creates test@test.com / admin123 and the ENGCO team
 npm run dev
 ```
+
+Create a `.env` (gitignored) with at least:
+```
+POSTGRES_URL=postgres://engco:engco@127.0.0.1:5432/engco
+BASE_URL=http://localhost:3000
+AUTH_SECRET=<openssl rand -hex 32>
+```
+(`npm run db:setup` will generate this interactively instead, if you'd rather not hand-write it.)
 
 Open `http://localhost:3000/workspace`.
 
@@ -22,9 +30,9 @@ See `../PRODUCT_IMPLEMENTATION_PLAN.md` for scope, architecture, delivery slices
 
 - `/workspace` — new-work composer, reads real `agent_registry.json` / `project_registry.json`.
 - Agent recommendation (`lib/engco/workflows.ts`) — keyword-routes the outcome text to a real agent from the registry.
-- Task creation (`lib/engco/tasks.ts`) — persists to `../data/tasks.json`. This is a stopgap; it does not handle concurrent writers safely and is slated to move into Postgres.
+- Task creation (`lib/engco/tasks.ts`) — persists to a real `tasks` table in Postgres. Attachment uploads append via an atomic `jsonb || jsonb` update rather than a read-modify-write, so two uploads landing at once can't clobber each other.
 - Document upload + analysis (`lib/engco/analyze.ts`) — shells out to the real `scripts/estimating/classify_sheets.py`, same as the CLI and the Flask app do.
-- Auth, teams, roles, activity log — the starter's scaffolding, present but not yet wired into `/workspace`.
+- Auth, teams, roles, activity log — the starter's scaffolding, present but not yet wired into `/workspace` (no login is required to create a task yet — that's next).
 
 ## Tech stack
 

@@ -5,8 +5,10 @@ import {
   text,
   timestamp,
   integer,
+  uuid,
+  jsonb,
 } from 'drizzle-orm/pg-core';
-import { relations } from 'drizzle-orm';
+import { relations, sql } from 'drizzle-orm';
 
 export const users = pgTable('users', {
   id: serial('id').primaryKey(),
@@ -62,6 +64,23 @@ export const invitations = pgTable('invitations', {
   invitedAt: timestamp('invited_at').notNull().defaultNow(),
   status: varchar('status', { length: 20 }).notNull().default('pending'),
 });
+
+export const tasks = pgTable('tasks', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  title: varchar('title', { length: 200 }).notNull(),
+  outcome: text('outcome').notNull(),
+  projectId: varchar('project_id', { length: 50 }).notNull(),
+  projectName: varchar('project_name', { length: 200 }).notNull(),
+  agentId: varchar('agent_id', { length: 20 }).notNull(),
+  agentName: varchar('agent_name', { length: 200 }).notNull(),
+  status: varchar('status', { length: 20 }).notNull().default('ready'),
+  attachments: jsonb('attachments').notNull().default(sql`'[]'::jsonb`),
+  analyses: jsonb('analyses').notNull().default(sql`'[]'::jsonb`),
+  createdAt: timestamp('created_at').notNull().defaultNow(),
+});
+
+export type TaskRow = typeof tasks.$inferSelect;
+export type NewTaskRow = typeof tasks.$inferInsert;
 
 export const teamsRelations = relations(teams, ({ many }) => ({
   teamMembers: many(teamMembers),

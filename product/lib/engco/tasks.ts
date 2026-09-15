@@ -1,8 +1,8 @@
 import 'server-only';
 
-import { randomUUID } from 'node:crypto';
-import { mkdir, readFile, rename, writeFile } from 'node:fs/promises';
-import path from 'node:path';
+import { eq, sql } from 'drizzle-orm';
+import { db } from '@/lib/db/drizzle';
+import { tasks as tasksTable, type TaskRow } from '@/lib/db/schema';
 
 export type Task = {
   id: string;
@@ -37,61 +37,60 @@ export type DocumentAnalysis = {
   error?: string;
 };
 
-const dataRoot = path.resolve(process.cwd(), '..', 'data');
-const tasksPath = path.join(dataRoot, 'tasks.json');
-
-async function readTasks(): Promise<Task[]> {
-  try {
-    const value = JSON.parse(await readFile(tasksPath, 'utf8')) as { tasks?: Task[] };
-    return value.tasks ?? [];
-  } catch (error) {
-    if ((error as NodeJS.ErrnoException).code === 'ENOENT') return [];
-    throw error;
-  }
+function serialize(row: TaskRow): Task {
+  return {
+    id: row.id,
+    title: row.title,
+    outcome: row.outcome,
+    projectId: row.projectId,
+    projectName: row.projectName,
+    agentId: row.agentId,
+    agentName: row.agentName,
+    status: row.status as Task['status'],
+    createdAt: row.createdAt.toISOString(),
+    attachments: row.attachments as TaskAttachment[],
+    analyses: row.analyses as DocumentAnalysis[]
+  };
 }
 
-export async function createTask(input: Omit<Task, 'id' | 'title' | 'status' | 'createdAt' | 'attachments' | 'analyses'>) {
-  const task: Task = {
-    ...input,
-    id: randomUUID(),
-    title: input.outcome.trim().replace(/\s+/g, ' ').slice(0, 80),
-    status: 'ready',
-    createdAt: new Date().toISOString(),
-    attachments: [],
-    analyses: []
-  };
-  const tasks = await readTasks();
-  tasks.unshift(task);
-  await mkdir(dataRoot, { recursive: true });
-  const temporaryPath = `${tasksPath}.${process.pid}.tmp`;
-  await writeFile(temporaryPath, `${JSON.stringify({ tasks }, null, 2)}\n`, 'utf8');
-  await rename(temporaryPath, tasksPath);
-  return task;
+export async function createTask(
+  input: Omit<Task, 'id' | 'title' | 'status' | 'createdAt' | 'attachments' | 'analyses'>
+) {
+  const [row] = await db
+    .insert(tasksTable)
+    .values({
+      title: input.outcome.trim().replace(/\s+/g, ' ').slice(0, 80),
+      outcome: input.outcome,
+      projectId: input.projectId,
+      projectName: input.projectName,
+      agentId: input.agentId,
+      agentName: input.agentName
+    })
+    .returning();
+  return serialize(row);
 }
 
 export async function getTask(id: string) {
-  return (await readTasks()).find((task) => task.id === id) ?? null;
+  const [row] = await db.select().from(tasksTable).where(eq(tasksTable.id, id)).limit(1);
+  return row ? serialize(row) : null;
 }
 
 export async function addTaskAttachment(taskId: string, attachment: TaskAttachment) {
-  const tasks = await readTasks();
-  const task = tasks.find((candidate) => candidate.id === taskId);
-  if (!task) return null;
-  task.attachments = [...(task.attachments ?? []), attachment];
-  const temporaryPath = `${tasksPath}.${process.pid}.tmp`;
-  await writeFile(temporaryPath, `${JSON.stringify({ tasks }, null, 2)}\n`, 'utf8');
-  await rename(temporaryPath, tasksPath);
-  return task;
+  // Appends via a single atomic UPDATE (jsonb || jsonb) instead of read-then-write,
+  // so two uploads landing at the same time can't clobber each other.
+  const [row] = await db
+    .update(tasksTable)
+    .set({ attachments: sql`${tasksTable.attachments} || ${JSON.stringify([attachment])}::jsonb` })
+    .where(eq(tasksTable.id, taskId))
+    .returning();
+  return row ? serialize(row) : null;
 }
 
 export async function setTaskAnalysis(taskId: string, status: Task['status'], analyses: DocumentAnalysis[]) {
-  const tasks = await readTasks();
-  const task = tasks.find((candidate) => candidate.id === taskId);
-  if (!task) return null;
-  task.status = status;
-  task.analyses = analyses;
-  const temporaryPath = `${tasksPath}.${process.pid}.tmp`;
-  await writeFile(temporaryPath, `${JSON.stringify({ tasks }, null, 2)}\n`, 'utf8');
-  await rename(temporaryPath, tasksPath);
-  return task;
+  const [row] = await db
+    .update(tasksTable)
+    .set({ status, analyses: analyses as unknown as object })
+    .where(eq(tasksTable.id, taskId))
+    .returning();
+  return row ? serialize(row) : null;
 }

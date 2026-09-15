@@ -8,6 +8,13 @@
       "when": 1789485722608,
       "tag": "0000_smooth_thanos",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1789486159954,
+      "tag": "0001_typical_madame_hydra",
+      "breakpoints": true
     }
   ]
 }

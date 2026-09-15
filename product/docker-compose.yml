@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:16.4-alpine
+    container_name: engco_one_postgres
+    environment:
+      POSTGRES_DB: engco
+      POSTGRES_USER: engco
+      POSTGRES_PASSWORD: engco
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
