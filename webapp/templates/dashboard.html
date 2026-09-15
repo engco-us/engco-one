@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Dashboard — ENGCO ONE{% endblock %}
+{% block content %}
+<h1>Dashboard</h1>
+<div class="subtitle">Live view of the real data — nothing here is cached or made up.</div>
+
+<div class="grid">
+  <div class="card"><div class="stat">{{ agent_count }}</div><div class="stat-label">Agents registered</div></div>
+  <div class="card"><div class="stat">{{ live_agent_count }}</div><div class="stat-label">Live / Pilot agents</div></div>
+  <div class="card"><div class="stat">{{ sop_approved }}/{{ sop_total }}</div><div class="stat-label">SOPs approved</div></div>
+  <div class="card"><div class="stat">{{ project_count }}</div><div class="stat-label">Active projects</div></div>
+</div>
+
+<h2>Weekly Scorecard</h2>
+{% if scorecard %}
+<div class="card">
+  <table>
+    <tr><td>Week of</td><td class="mono">{{ scorecard.week_of }}</td></tr>
+    <tr><td>Active projects</td><td class="mono">{{ scorecard.active_projects }}</td></tr>
+    <tr><td>Proposals out</td><td class="mono">{{ scorecard.proposals_out }}</td></tr>
+    <tr><td>Cash position</td><td class="mono">${{ "{:,.0f}".format(scorecard.cash_position) }}</td></tr>
+    <tr><td>Recorded by</td><td>{{ scorecard.recorded_by }}</td></tr>
+  </table>
+  {% if stale %}<div class="note" style="color:var(--warn)">This entry is stale — over 7 days old.</div>{% endif %}
+</div>
+{% else %}
+<div class="card">No scorecard entries yet. <a href="{{ url_for('scorecard') }}">Add one</a>.</div>
+{% endif %}
+
+<h2>SOPs still missing (High priority)</h2>
+<div class="card">
+  <table>
+    <tr><th>ID</th><th>Procedure</th><th>Owner role</th></tr>
+    {% for s in missing_high_sops %}
+    <tr><td class="mono">{{ s.id }}</td><td>{{ s.procedure }}</td><td>{{ s.owner_role }}</td></tr>
+    {% endfor %}
+  </table>
+</div>
+{% endblock %}

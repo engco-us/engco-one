@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}SOPs — ENGCO ONE{% endblock %}
+{% block content %}
+<h1>SOPs</h1>
+<div class="subtitle">{{ sops|length }} total — Draft/Approved status is real, not aspirational.</div>
+
+<div class="card">
+  <table>
+    <tr><th>ID</th><th>Procedure</th><th>Department</th><th>Priority</th><th>Status</th><th>Owner</th></tr>
+    {% for s in sops %}
+    <tr>
+      <td class="mono">{{ s.id }}</td>
+      <td>{{ s.procedure }}</td>
+      <td class="note">{{ s.department }}</td>
+      <td>{{ s.priority }}</td>
+      <td><span class="pill pill-{{ s.status|lower }}">{{ s.status }}</span></td>
+      <td>{{ s.owner_name or s.owner_role }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+{% endblock %}

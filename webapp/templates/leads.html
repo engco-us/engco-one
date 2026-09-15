@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Leads Finder — ENGCO ONE{% endblock %}
+{% block content %}
+<h1>Leads Finder</h1>
+<div class="subtitle">Report-only. Never submits a bid, never contacts an agency — reads and reports.</div>
+
+<div class="card">
+  <form method="post" action="{{ url_for('run_leads') }}">
+    <div><label>Look back this many days</label><input type="number" name="days_back" value="14" required></div>
+    <div><label><input type="checkbox" name="source" value="esbd" checked style="width:auto"> TxDOT (ESBD) — no key needed</label></div>
+    <div><label><input type="checkbox" name="source" value="austin" checked style="width:auto"> Austin commercial building permits</label></div>
+    <div><label><input type="checkbox" name="source" value="samgov" style="width:auto"> SAM.gov (federal) — needs SAM_GOV_API_KEY set</label></div>
+    <button type="submit">Run</button>
+  </form>
+</div>
+
+{% if output %}
+<h2>Result</h2>
+<pre class="output">{{ output }}</pre>
+{% endif %}
+{% endblock %}

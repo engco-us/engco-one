@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Projects — ENGCO ONE{% endblock %}
+{% block content %}
+<h1>Projects</h1>
+<div class="subtitle">Registered per SOP-001. Every project has an ID before any work starts on it.</div>
+
+<div class="card">
+  <table>
+    <tr><th>ID</th><th>Name</th><th>City</th><th>Client</th><th>Phase</th><th>Status</th><th>PM</th></tr>
+    {% for p in projects %}
+    <tr>
+      <td class="mono">{{ p.project_id }}</td>
+      <td>{{ p.project_name }}</td>
+      <td>{{ p.city }}</td>
+      <td class="note">{{ p.client }}</td>
+      <td>{{ p.current_phase }}</td>
+      <td><span class="pill pill-active">{{ p.overall_status }}</span></td>
+      <td>{{ p.project_manager or "TBD" }}</td>
+    </tr>
+    {% endfor %}
+    {% if not projects %}<tr><td colspan="7" class="note">No projects registered yet.</td></tr>{% endif %}
+  </table>
+</div>
+
+<h2>Register a new project (SOP-001)</h2>
+<div class="card">
+  <form method="post" action="{{ url_for('new_project') }}">
+    <div><label>Project name</label><input name="name" required></div>
+    <div><label>City</label><input name="city" required></div>
+    <div><label>Client</label><input name="client" required></div>
+    <div><label>Project type</label><input name="type" required placeholder="e.g. Civil / Trail and Bridge"></div>
+    <button type="submit">Create project</button>
+    <div class="note">Runs the real SOP-001 script — scaffolds folders and adds a registry row. Project Manager stays TBD until assigned within 24 hours, per SOP-001.</div>
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Agents — ENGCO ONE{% endblock %}
+{% block content %}
+<h1>Agents</h1>
+<div class="subtitle">Every agent has a named human owner. No agent runs without one.</div>
+
+<div class="card">
+  <table>
+    <tr><th>ID</th><th>Name</th><th>Status</th><th>Owner</th><th>Owns</th></tr>
+    {% for a in agents %}
+    <tr>
+      <td class="mono">{{ a.id }}</td>
+      <td>{{ a.name }}</td>
+      <td><span class="pill pill-{{ a.status|lower }}">{{ a.status }}</span></td>
+      <td>{{ a.accountable_owner }}</td>
+      <td class="note">{{ (a.owns_functions or [])|join(", ") }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+
+<h2>Unassigned functions (human-only, no agent)</h2>
+<div class="card">
+  <table>
+    <tr><th>Function</th><th>Why</th></tr>
+    {% for u in unowned %}
+    <tr><td>{{ u.function }}</td><td class="note">{{ u.note }}</td></tr>
+    {% endfor %}
+  </table>
+</div>
+{% endblock %}
