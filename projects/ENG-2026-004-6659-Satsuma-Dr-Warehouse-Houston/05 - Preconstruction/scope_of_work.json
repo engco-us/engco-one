@@ -1,0 +1,247 @@
+{
+  "project_name": "6659 Satsuma Dr Warehouse (ENG-2026-004)",
+  "line_count": 13,
+  "lines": [
+    {
+      "csi_division": "02",
+      "csi_division_name": "Existing Conditions / Survey",
+      "item": "Site area",
+      "quantity": 1.302,
+      "unit": "acres",
+      "confidence": "schedule_verified",
+      "citations": [
+        {
+          "source_file": "Civil Plans - 6659 SATSUMA DR HOUSTON TX 77041- 8.25.2026..pdf",
+          "source_page": 3,
+          "source_snippet": "1.302 ACRES (56,700 SF) \u2014 Property Description panel, item II.A"
+        }
+      ],
+      "note": "56,700 SF, same value. Lot 48, Block 5, Satsuma Estates Sec. 2.",
+      "unit_rate": null,
+      "rate_source": null,
+      "total": null
+    },
+    {
+      "csi_division": "33",
+      "csi_division_name": "Utilities \u2014 Stormwater Detention",
+      "item": "Maximum allowable outflow (pre-development peak flow) (1% / 100-year)",
+      "quantity": 3.192,
+      "unit": "cfs",
+      "confidence": "schedule_verified",
+      "citations": [
+        {
+          "source_file": "Civil Plans - 6659 SATSUMA DR HOUSTON TX 77041- 8.25.2026..pdf",
+          "source_page": 3,
+          "source_snippet": "HCFCD PCPM Summary Table, row 'Maximum allowable outflow (pre-development peak flow), cfs' \u2014 real extractor output, scripts/estimating/extract_hcfcd_detention.py"
+        }
+      ],
+      "note": "Full row: 2-year=0.931 cfs, 10-year=1.729 cfs, 100-year=3.192 cfs.",
+      "unit_rate": null,
+      "rate_source": null,
+      "total": null
+    },
+    {
+      "csi_division": "33",
+      "csi_division_name": "Utilities \u2014 Stormwater Detention",
+      "item": "Maximum outflow provided (peak flow from basin) (1% / 100-year)",
+      "quantity": 1.481,
+      "unit": "cfs",
+      "confidence": "schedule_verified",
+      "citations": [
+        {
+          "source_file": "Civil Plans - 6659 SATSUMA DR HOUSTON TX 77041- 8.25.2026..pdf",
+          "source_page": 3,
+          "source_snippet": "HCFCD PCPM Summary Table, row 'Maximum outflow provided (peak flow from basin), cfs' \u2014 real extractor output, scripts/estimating/extract_hcfcd_detention.py"
+        }
+      ],
+      "note": "Full row: 2-year=0.67 cfs, 10-year=0.933 cfs, 100-year=1.481 cfs.",
+      "unit_rate": null,
+      "rate_source": null,
+      "total": null
+    },
+    {
+      "csi_division": "33",
+      "csi_division_name": "Utilities \u2014 Stormwater Detention",
+      "item": "Design water surface elevation (1% / 100-year)",
+      "quantity": 116.0,
+      "unit": "ft",
+      "confidence": "schedule_verified",
+      "citations": [
+        {
+          "source_file": "Civil Plans - 6659 SATSUMA DR HOUSTON TX 77041- 8.25.2026..pdf",
+          "source_page": 3,
+          "source_snippet": "HCFCD PCPM Summary Table, row 'Design water surface elevation, ft' \u2014 real extractor output, scripts/estimating/extract_hcfcd_detention.py"
+        }
+      ],
+      "note": "Full row: 2-year=110.43 ft, 10-year=111.783 ft, 100-year=116.0 ft.",
+      "unit_rate": null,
+      "rate_source": null,
+      "total": null
+    },
+    {
+      "csi_division": "33",
+      "csi_division_name": "Utilities \u2014 Stormwater Detention",
+      "item": "Minimum storage required (1% / 100-year)",
+      "quantity": 1.33,
+      "unit": "ac-ft",
+      "confidence": "schedule_verified",
+      "citations": [
+        {
+          "source_file": "Civil Plans - 6659 SATSUMA DR HOUSTON TX 77041- 8.25.2026..pdf",
+          "source_page": 3,
+          "source_snippet": "HCFCD PCPM Summary Table, row 'Minimum storage required, ac-ft' \u2014 real extractor output, scripts/estimating/extract_hcfcd_detention.py"
+        }
+      ],
+      "note": "Full row: 2-year=0.2261 ac-ft, 10-year=0.4389 ac-ft, 100-year=1.33 ac-ft.",
+      "unit_rate": null,
+      "rate_source": null,
+      "total": null
+    },
+    {
+      "csi_division": "33",
+      "csi_division_name": "Utilities \u2014 Stormwater Detention",
+      "item": "Detention storage provided (1% / 100-year)",
+      "quantity": 1.33,
+      "unit": "ac-ft",
+      "confidence": "schedule_verified",
+      "citations": [
+        {
+          "source_file": "Civil Plans - 6659 SATSUMA DR HOUSTON TX 77041- 8.25.2026..pdf",
+          "source_page": 3,
+          "source_snippet": "HCFCD PCPM Summary Table, row 'Detention storage provided, ac-ft' \u2014 real extractor output, scripts/estimating/extract_hcfcd_detention.py"
+        }
+      ],
+      "note": "Full row: 2-year=0.2261 ac-ft, 10-year=0.4389 ac-ft, 100-year=1.33 ac-ft.",
+      "unit_rate": null,
+      "rate_source": null,
+      "total": null
+    },
+    {
+      "csi_division": "33",
+      "csi_division_name": "Utilities \u2014 Stormwater Detention",
+      "item": "Storage rate provided (1% / 100-year)",
+      "quantity": 1.0,
+      "unit": "ac-ft/ac",
+      "confidence": "schedule_verified",
+      "citations": [
+        {
+          "source_file": "Civil Plans - 6659 SATSUMA DR HOUSTON TX 77041- 8.25.2026..pdf",
+          "source_page": 3,
+          "source_snippet": "HCFCD PCPM Summary Table, row 'Storage rate provided, ac-ft/ac' \u2014 real extractor output, scripts/estimating/extract_hcfcd_detention.py"
+        }
+      ],
+      "note": "Full row: 2-year=0.17 ac-ft/ac, 10-year=0.33 ac-ft/ac, 100-year=1.0 ac-ft/ac.",
+      "unit_rate": null,
+      "rate_source": null,
+      "total": null
+    },
+    {
+      "csi_division": "33",
+      "csi_division_name": "Utilities \u2014 Stormwater Detention",
+      "item": "Outflow velocity into channel (1% / 100-year)",
+      "quantity": 0.838,
+      "unit": "ft/sec",
+      "confidence": "schedule_verified",
+      "citations": [
+        {
+          "source_file": "Civil Plans - 6659 SATSUMA DR HOUSTON TX 77041- 8.25.2026..pdf",
+          "source_page": 3,
+          "source_snippet": "HCFCD PCPM Summary Table, row 'Outflow velocity into channel, ft/sec' \u2014 real extractor output, scripts/estimating/extract_hcfcd_detention.py"
+        }
+      ],
+      "note": "Full row: 2-year=0.379 ft/sec, 10-year=0.528 ft/sec, 100-year=0.838 ft/sec.",
+      "unit_rate": null,
+      "rate_source": null,
+      "total": null
+    },
+    {
+      "csi_division": "33",
+      "csi_division_name": "Utilities \u2014 Stormwater Detention",
+      "item": "Pumped 1% exceedance storage volume",
+      "quantity": 0.473,
+      "unit": "ac-ft",
+      "confidence": "schedule_verified",
+      "citations": [
+        {
+          "source_file": "Civil Plans - 6659 SATSUMA DR HOUSTON TX 77041- 8.25.2026..pdf",
+          "source_page": 3,
+          "source_snippet": "0.473 ACFT, 0.42% of total volume \u2014 Additional Criteria for Pumped Detention Basins"
+        }
+      ],
+      "note": "",
+      "unit_rate": null,
+      "rate_source": null,
+      "total": null
+    },
+    {
+      "csi_division": "33",
+      "csi_division_name": "Utilities \u2014 Stormwater Detention",
+      "item": "Pumped-basin drain time",
+      "quantity": 5.72,
+      "unit": "hours",
+      "confidence": "schedule_verified",
+      "citations": [
+        {
+          "source_file": "Civil Plans - 6659 SATSUMA DR HOUSTON TX 77041- 8.25.2026..pdf",
+          "source_page": 3,
+          "source_snippet": "Drain time for basin = 5.72 hours \u2014 Additional Criteria for Pumped Detention Basins"
+        }
+      ],
+      "note": "",
+      "unit_rate": null,
+      "rate_source": null,
+      "total": null
+    },
+    {
+      "csi_division": "33",
+      "csi_division_name": "Utilities \u2014 Stormwater Detention",
+      "item": "Flow restrictor \u2014 outlet pipe size",
+      "quantity": 18,
+      "unit": "in",
+      "confidence": "schedule_verified",
+      "citations": [
+        {
+          "source_file": "Civil Plans - 6659 SATSUMA DR HOUSTON TX 77041- 8.25.2026..pdf",
+          "source_page": 3,
+          "source_snippet": "Outlet pipe size: 18-inch \u2014 Flow Restrictor Size panel"
+        }
+      ],
+      "note": "",
+      "unit_rate": null,
+      "rate_source": null,
+      "total": null
+    },
+    {
+      "csi_division": "33",
+      "csi_division_name": "Utilities \u2014 Stormwater Detention",
+      "item": "Flow restrictor \u2014 restrictor pipe size",
+      "quantity": 4,
+      "unit": "in",
+      "confidence": "schedule_verified",
+      "citations": [
+        {
+          "source_file": "Civil Plans - 6659 SATSUMA DR HOUSTON TX 77041- 8.25.2026..pdf",
+          "source_page": 3,
+          "source_snippet": "Restrictor pipe size: 4-inch, restrictor plate 4-inch diameter circular orifice \u2014 Flow Restrictor Size panel"
+        }
+      ],
+      "note": "",
+      "unit_rate": null,
+      "rate_source": null,
+      "total": null
+    },
+    {
+      "csi_division": "00",
+      "csi_division_name": "General",
+      "item": "Number of buildings on site",
+      "quantity": null,
+      "unit": "ea",
+      "confidence": "unresolved",
+      "citations": [],
+      "note": "Visually read as '2' on the Harris County Engineering Dept. Review Sheet ('BUILDING PERMITS (NO. OF BUILDINGS = 2)'), but that field is NOT in the PDF's extractable text layer \u2014 same raster-template issue as the HCFCD sheet, but this particular field has no known-position schema built yet. Not reported as a hard number per this toolkit's own rule: vision identifies, it doesn't originate a number a report relies on. A human should confirm this directly against the sheet before using it.",
+      "unit_rate": null,
+      "rate_source": null,
+      "total": null
+    }
+  ]
+}
