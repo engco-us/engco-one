@@ -39,8 +39,22 @@ structure covers every door-numbering scheme found on the same real sheet
 `R#`/`XR#` unit door TYPE codes) — see the "Trust the render, not the
 regex" lesson below for how its first version was wrong and got caught.
 
+**`extract_hcfcd_detention.py`** — pulls the 7-row detention-basin summary
+table off a Harris County Flood Control District "Review Sheet", a
+standardized county form reused across every HCFCD-jurisdiction civil
+project, not project-specific. Real, novel difference from every other
+extractor here: the row/column LABELS aren't in the PDF's text layer at
+all (baked into a raster template background) — only the engineer-filled
+VALUES are real text. So this is position-based, not label-anchored, and
+correspondingly more fragile if the county revises the form; guarded by
+refusing to run unless the page's real text confirms it's actually this
+form, and refusing to map values unless exactly the expected row count is
+found. Proven on a real project (6659 Satsuma Dr, Houston — HC Project
+2607210179).
+
 **`auto_extract.py`** — tries every extractor above that this toolkit has
-real proof on (COMcheck, REScheck, TxDOT E&Q, door schedules) against one
+real proof on (COMcheck, REScheck, TxDOT E&Q, door schedules, HCFCD
+detention sheets) against one
 PDF and reports only the ones that actually matched, with an honest note
 when none did. Exists because `classify_sheets.py` alone is NOT a
 quantity takeoff — it tags what's on each page and never produces a

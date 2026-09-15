@@ -28,7 +28,7 @@ export type TaskAttachment = {
 };
 
 export type QuantityMatch = {
-  extractor: 'comcheck' | 'rescheck' | 'txdot_eq' | 'door_schedule';
+  extractor: 'comcheck' | 'rescheck' | 'txdot_eq' | 'door_schedule' | 'hcfcd_detention';
   result?: Record<string, unknown>;
   rows?: Record<string, unknown>[];
   pages?: Record<string, unknown>[];

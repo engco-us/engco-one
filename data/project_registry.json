@@ -109,6 +109,21 @@
       "forecast_finish": null,
       "last_update": "2026-09-15",
       "folder": "projects/ENG-2026-003-T-Houston"
+    },
+    {
+      "project_id": "ENG-2026-004",
+      "project_name": "6659 Satsuma Dr Warehouse",
+      "city": "Houston",
+      "client": "TBD",
+      "project_type": "Civil / Site Development",
+      "current_phase": "Permitting",
+      "overall_status": "On Track",
+      "project_manager": "",
+      "contract_value": 0,
+      "start_date": "2026-09-15",
+      "forecast_finish": null,
+      "last_update": "2026-09-15",
+      "folder": "projects/ENG-2026-004-6659-Satsuma-Dr-Warehouse-Houston"
     }
   ]
 }

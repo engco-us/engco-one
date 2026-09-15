@@ -136,6 +136,26 @@ function QuantityCard({ match }: { match: QuantityMatch }) {
       </div>
     );
   }
+  if (match.extractor === 'hcfcd_detention') {
+    const pages = match.pages ?? [];
+    return (
+      <div className="rounded-md border p-4">
+        <p className="text-xs font-medium uppercase tracking-wide text-emerald-700">HCFCD Detention Summary</p>
+        {pages.map((page, pi) => (
+          <div key={pi} className="mt-2 divide-y">
+            {(page.rows as { row: string; columns: Record<string, number> }[] ?? []).map((r, ri) => (
+              <div key={ri} className="py-1.5 text-sm">
+                <p className="font-medium">{r.row}</p>
+                <p className="text-muted-foreground">
+                  {Object.entries(r.columns).map(([label, value]) => `${label}: ${value}`).join('  ·  ')}
+                </p>
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
+    );
+  }
   return null;
 }
 

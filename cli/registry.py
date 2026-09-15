@@ -34,8 +34,11 @@ COMMANDS = [
     {"category": "estimate", "name": "door-schedule", "script": "scripts/estimating/extract_door_schedule.py",
      "help": "Pull door ID/location/width/height off a door & frame schedule",
      "usage": "<pdf> --page N   (or --find-pages to locate it first)"},
+    {"category": "estimate", "name": "hcfcd-detention", "script": "scripts/estimating/extract_hcfcd_detention.py",
+     "help": "Pull the detention-basin summary table off a Harris County Flood Control District Review Sheet",
+     "usage": "<pdf> --page N   (or --find-pages to locate it first)"},
     {"category": "estimate", "name": "auto", "script": "scripts/estimating/auto_extract.py",
-     "help": "Try every proven extractor (COMcheck/REScheck/TxDOT/door schedule) and report only real matches",
+     "help": "Try every proven extractor (COMcheck/REScheck/TxDOT/door schedule/HCFCD) and report only real matches",
      "usage": "<pdf>"},
 
     # --- design/engineering QA ---

@@ -8,9 +8,9 @@ number. Confusing the two is a real mistake this toolkit made once already
 (shipped a "Quantity takeoff" UI that only ran classification and showed
 the user a page-tag list with no quantities on it). This script is the
 honest fix: run every extractor this toolkit actually has proof it works
-(COMcheck, REScheck, TxDOT E&Q, door schedules), and say plainly when
-none of them match, rather than silently showing something that looks
-like an answer but isn't one.
+(COMcheck, REScheck, TxDOT E&Q, door schedules, HCFCD detention review
+sheets), and say plainly when none of them match, rather than silently
+showing something that looks like an answer but isn't one.
 
 This is NOT a general "extract quantities from any construction PDF"
 tool — no such thing exists, and pretending otherwise would repeat the
@@ -32,6 +32,7 @@ import extract_comcheck
 import extract_rescheck
 import extract_txdot_eq
 import extract_door_schedule
+import extract_hcfcd_detention
 
 
 def try_comcheck(pdf_path: str):
@@ -73,9 +74,21 @@ def try_door_schedule(pdf_path: str):
     return None
 
 
+def try_hcfcd_detention(pdf_path: str):
+    pages = extract_hcfcd_detention.find_candidate_pages(pdf_path)
+    matches = []
+    for pg in pages:
+        result = extract_hcfcd_detention.extract(pdf_path, pg)
+        if result.get("rows"):
+            matches.append(result)
+    if matches:
+        return {"extractor": "hcfcd_detention", "pages": matches}
+    return None
+
+
 def run(pdf_path: str) -> dict:
     matched = []
-    for tryer in (try_comcheck, try_rescheck, try_txdot, try_door_schedule):
+    for tryer in (try_comcheck, try_rescheck, try_txdot, try_door_schedule, try_hcfcd_detention):
         hit = tryer(pdf_path)
         if hit:
             matched.append(hit)
