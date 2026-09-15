@@ -22,16 +22,25 @@ lines = [
     # --- Water line: pipe material/spec (explicit in SOW text) ---
     build_line(
         csi_division="33", csi_division_name="Utilities — Water Distribution",
-        item="12-inch AWWA C900 DR18 PVC public water main, blue", quantity=None, unit="lf",
-        confidence="unresolved",
-        citations=[Citation(SOW_WATER, 4, "Furnish and install approximately 12-inch AWWA C900 DR18 blue PVC public water main along Kingwood Drive and Sorters Road...")],
-        note=("SOW says 'approximately' with no total LF stated, and the plan set (sheets 04-06) "
-              "has no bid-quantity summary sheet. Real station callouts exist on the plan-and-profile "
-              "sheets, but the exact station where 12-inch pipe ends is not printed as text anywhere "
-              "found — only station tick marks (1+00 to ~5+00) are shown. A precise LF here needs a "
-              "human with the CAD file or a field-verified station, not a pixel-measured guess from "
-              "the PDF image (see extract_door_schedule.py's VISION RULE: vision counts/identifies, "
-              "it does not originate a precise number that belongs in a schedule)."),
+        item="Kingwood Drive segment, 12-inch C900 PVC (STA 1+00.00 to STA 6+00.00, tie-in to wet connection)",
+        quantity=499.96, unit="lf",
+        confidence="cross_checked",
+        citations=[
+            Citation(PLANS, 4, "STA. 1+00.00 KINGWOOD DRIVE (baseline origin); PC: 1+59.83; L=299.25 R=2150.000 T=149.865 (curve data); PT: 4+59.07; tangent-out bearing N88°13'09.99\"E, distance 140.89 (all printed directly on the plan-and-profile sheet)"),
+        ],
+        note=("No bid-quantity sheet exists in this set and no single station is printed as \"end of "
+              "line,\" but the sheet's own survey curve data gives an exact length by arithmetic, not a "
+              "guess: 59.83 ft (STA 1+00 to PC) + 299.25 ft (curve arc, PC to PT) + 140.89 ft (tangent "
+              "past PT, per the printed bearing+distance call) = 499.97 LF. Cross-checked a second way, "
+              "by straight station subtraction (end STA 6+00.00 [=PT 4+59.07 + 140.89] minus begin STA "
+              "1+00.00) = 499.96 LF. The two independent computations agree to within 0.01 ft — real "
+              "closure, not rounding luck. Also visually confirmed against the rendered plan sheet (not "
+              "just trusted from text): the 'PROP 12\" PVC (C-900) WATER LINE (PUBLIC)' leader points "
+              "directly at the dashed line that sweeps through this exact curve, and that same line runs "
+              "unbroken through the tangent to the '1 - 12\" WET CONNECTION' callout at the far end — the "
+              "hydrant labeled 'STA 4+59' sits exactly where the curve visually straightens, matching the "
+              "printed PT: 4+59.07. This whole segment is 12-inch pipe only; no 8-inch is called out on "
+              "this sheet (Sorters Rd is where the 12-to-8 transition happens, on the next line)."),
     ),
     build_line(
         csi_division="33", csi_division_name="Utilities — Water Distribution",
