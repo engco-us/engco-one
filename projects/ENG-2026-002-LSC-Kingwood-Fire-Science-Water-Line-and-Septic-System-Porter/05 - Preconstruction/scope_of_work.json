@@ -1,0 +1,437 @@
+{
+  "project_name": "LSC Kingwood Fire Science Water Line and Septic System (CSP 26-08-10)",
+  "line_count": 22,
+  "lines": [
+    {
+      "csi_division": "33",
+      "csi_division_name": "Utilities \u2014 Water Distribution",
+      "item": "12-inch AWWA C900 DR18 PVC public water main, blue",
+      "quantity": null,
+      "unit": "lf",
+      "confidence": "unresolved",
+      "citations": [
+        {
+          "source_file": "26 0814 SOW Water Line 12 & 8 RV1.pdf",
+          "source_page": 4,
+          "source_snippet": "Furnish and install approximately 12-inch AWWA C900 DR18 blue PVC public water main along Kingwood Drive and Sorters Road..."
+        }
+      ],
+      "note": "SOW says 'approximately' with no total LF stated, and the plan set (sheets 04-06) has no bid-quantity summary sheet. Real station callouts exist on the plan-and-profile sheets, but the exact station where 12-inch pipe ends is not printed as text anywhere found \u2014 only station tick marks (1+00 to ~5+00) are shown. A precise LF here needs a human with the CAD file or a field-verified station, not a pixel-measured guess from the PDF image (see extract_door_schedule.py's VISION RULE: vision counts/identifies, it does not originate a precise number that belongs in a schedule).",
+      "unit_rate": null,
+      "rate_source": null,
+      "total": null
+    },
+    {
+      "csi_division": "33",
+      "csi_division_name": "Utilities \u2014 Water Distribution",
+      "item": "Sorters Road segment, 12-inch/8-inch C900 PVC (STA 1+00.00 to STA 4+13.47, tie-in to trenchless crossing)",
+      "quantity": 313.47,
+      "unit": "lf",
+      "confidence": "cross_checked",
+      "citations": [
+        {
+          "source_file": "26 0813 - LSC Kingwood FTF_Approved PUB Plans_260813.pdf",
+          "source_page": 5,
+          "source_snippet": "STA. 1+00.00 SORTERS ROAD (baseline origin, shared with Kingwood Drive STA 1+00.00)"
+        },
+        {
+          "source_file": "26 0813 - LSC Kingwood FTF_Approved PUB Plans_260813.pdf",
+          "source_page": 6,
+          "source_snippet": "STA, 4+13.47 SORTERS ROAD = STA. 1+34.68 SORTERS ROAD CROSSING (explicit tie-in station, printed on both sheet 05 and sheet 06)"
+        }
+      ],
+      "note": "313.47 LF = 413.47 - 100.00, station arithmetic between two independently, explicitly printed station callouts (both sheets agree on the tie-in station exactly). This is the one segment length on this project defensible enough to call cross_checked rather than a plan-scaled estimate. Includes the 12-inch-to-8-inch transition; sheet 05's profile shows the transition graphically but does not print its exact station.",
+      "unit_rate": null,
+      "rate_source": null,
+      "total": null
+    },
+    {
+      "csi_division": "33",
+      "csi_division_name": "Utilities \u2014 Water Distribution",
+      "item": "Trenchless 8-inch C900 PVC crossing under Sorters Road",
+      "quantity": 44,
+      "unit": "lf",
+      "confidence": "cross_checked",
+      "citations": [
+        {
+          "source_file": "26 0814 SOW Water Line 12 & 8 RV1.pdf",
+          "source_page": 4,
+          "source_snippet": "Construct approximately 44 linear feet of trenchless 8-inch C900 PVC public water line crossing Sorters Road..."
+        },
+        {
+          "source_file": "26 0813 - LSC Kingwood FTF_Approved PUB Plans_260813.pdf",
+          "source_page": 6,
+          "source_snippet": "PROP. 44 LF TRENCHLESS CONSTRUCTION (PUBLIC) \u2014 printed directly on the Sorters Road Crossing plan-and-profile sheet"
+        }
+      ],
+      "note": "Real independent agreement: the SOW's 'approximately 44 linear feet' and the plan's printed '44 LF' label match exactly.",
+      "unit_rate": null,
+      "rate_source": null,
+      "total": null
+    },
+    {
+      "csi_division": "33",
+      "csi_division_name": "Utilities \u2014 Water Distribution",
+      "item": "Ductile iron pipe transition sections (AWWA C151, C104 lining, 8-mil poly wrap)",
+      "quantity": null,
+      "unit": "lf",
+      "confidence": "unresolved",
+      "citations": [
+        {
+          "source_file": "26 0814 SOW Water Line 12 & 8 RV1.pdf",
+          "source_page": 4,
+          "source_snippet": "Provide required transitions between PVC and ductile iron pipe and fittings..."
+        }
+      ],
+      "note": "Real requirement, shown graphically (hatched) on sheets 04-06 profiles at each vertical-bend/casing location, but no length is labeled at any transition. Needs a human take-off from the profile details.",
+      "unit_rate": null,
+      "rate_source": null,
+      "total": null
+    },
+    {
+      "csi_division": "33",
+      "csi_division_name": "Utilities \u2014 Water Distribution",
+      "item": "12-inch wet connection to existing City water line",
+      "quantity": 1,
+      "unit": "ea",
+      "confidence": "cross_checked",
+      "citations": [
+        {
+          "source_file": "26 0814 SOW Water Line 12 & 8 RV1.pdf",
+          "source_page": 4,
+          "source_snippet": "Perform one 12-inch wet connection to the existing 12-inch City water line on Kingwood Drive..."
+        },
+        {
+          "source_file": "26 0813 - LSC Kingwood FTF_Approved PUB Plans_260813.pdf",
+          "source_page": 4,
+          "source_snippet": "1 - 12\" WET CONNECTION / REMOVE EXIST. PLUG AND BOV AND CONNECT PROP. 12\" WATER LINE TO EXIST. 12\" WATER LINE \u2014 printed callout, east end of Kingwood Drive sheet"
+        }
+      ],
+      "note": "",
+      "unit_rate": null,
+      "rate_source": null,
+      "total": null
+    },
+    {
+      "csi_division": "33",
+      "csi_division_name": "Utilities \u2014 Water Distribution",
+      "item": "Fire hydrant assemblies (6-inch lead, auxiliary valve, thrust restraint)",
+      "quantity": 4,
+      "unit": "ea",
+      "confidence": "vision_count",
+      "citations": [
+        {
+          "source_file": "26 0813 - LSC Kingwood FTF_Approved PUB Plans_260813.pdf",
+          "source_page": 4,
+          "source_snippet": "Counted 4 fire-hydrant symbols with F.H. callouts across sheets 04-06: STA 1+44 (Kingwood Dr), STA 4+59 (Kingwood Dr), Sorters Rd mid-segment, STA 4+18 (Sorters Rd)"
+        }
+      ],
+      "note": "Counted from the plan-view fire-hydrant symbol + station callout on each sheet, not from a schedule table (none exists on this set) \u2014 flagged vision_count, not schedule_verified. A human should re-confirm against the full-size plan before pricing.",
+      "unit_rate": null,
+      "rate_source": null,
+      "total": null
+    },
+    {
+      "csi_division": "33",
+      "csi_division_name": "Utilities \u2014 Water Distribution",
+      "item": "Gate valves with box, various sizes (6\", 8\", 12\") at tees/connections",
+      "quantity": null,
+      "unit": "ea",
+      "confidence": "unresolved",
+      "citations": [],
+      "note": "Real, plainly labeled on every plan sheet (e.g. '2-12\" G.V. W/ BOX', '1-6\" G.V. W/ BOX', '1-8\" G.V. W/ BOX') at each tee and connection cluster \u2014 but several fitting clusters appear on more than one sheet where two sheets share a boundary point (Kingwood Dr/Sorters Rd junction shown on both sheet 04 and sheet 05; Sorters Rd/crossing junction shown on both sheet 05 and sheet 06). Double-counting a shared-boundary cluster is a real risk here \u2014 the same failure mode this toolkit already hit and fixed once on Nueces's pier caps. Rather than guess which clusters are duplicates without a clean way to cross-check station coordinates between sheets, this is left for a human to tally directly off the full-size plans (or the source CAD/DWG file, referenced in the plan sheets' title blocks) rather than risk a wrong number with a confident label.",
+      "unit_rate": null,
+      "rate_source": null,
+      "total": null
+    },
+    {
+      "csi_division": "33",
+      "csi_division_name": "Utilities \u2014 Water Distribution",
+      "item": "12-inch fittings: tees, 45\u00b0 bends, plugs and clamps at line ends/junctions",
+      "quantity": null,
+      "unit": "ea",
+      "confidence": "unresolved",
+      "citations": [],
+      "note": "Same shared-boundary double-count risk as the gate valves above \u2014 flagged for the same reason, not guessed at.",
+      "unit_rate": null,
+      "rate_source": null,
+      "total": null
+    },
+    {
+      "csi_division": "33",
+      "csi_division_name": "Utilities \u2014 Water Distribution",
+      "item": "8-inch fire-rated compound meter assembly (FRCWMA) with vault, in 31'x15' water meter easement",
+      "quantity": 1,
+      "unit": "ea",
+      "confidence": "cross_checked",
+      "citations": [
+        {
+          "source_file": "26 0814 SOW Water Line 12 & 8 RV1.pdf",
+          "source_page": 4,
+          "source_snippet": "...8-inch fire-rated compound meter with vault (FRCWMA) in the 31'x15' water meter easement..."
+        },
+        {
+          "source_file": "26 0813 - LSC Kingwood FTF_Approved PUB Plans_260813.pdf",
+          "source_page": 6,
+          "source_snippet": "PROP. FRCWMA W/ VAULT, labeled on the Sorters Road Crossing plan and profile"
+        }
+      ],
+      "note": "",
+      "unit_rate": null,
+      "rate_source": null,
+      "total": null
+    },
+    {
+      "csi_division": "33",
+      "csi_division_name": "Utilities \u2014 Water Distribution",
+      "item": "8-inch reduced pressure zone (RPZ) backflow preventer assembly, on private property",
+      "quantity": 1,
+      "unit": "ea",
+      "confidence": "cross_checked",
+      "citations": [
+        {
+          "source_file": "26 0814 SOW Water Line 12 & 8 RV1.pdf",
+          "source_page": 4,
+          "source_snippet": "...and the 8-inch reduced pressure zone (RPZ) backflow preventer assembly located on private property..."
+        },
+        {
+          "source_file": "26 0813 - LSC Kingwood FTF_Approved PUB Plans_260813.pdf",
+          "source_page": 6,
+          "source_snippet": "PROPOSED 8\" REDUCED PRESSURE ZONE (RPZ) BACKFLOW PREVENTOR IN PRIVATE PROPERTY \u2014 key note W2, Sorters Road Crossing sheet"
+        }
+      ],
+      "note": "",
+      "unit_rate": null,
+      "rate_source": null,
+      "total": null
+    },
+    {
+      "csi_division": "33",
+      "csi_division_name": "Utilities \u2014 On-Site Sewage Facility (OSSF)",
+      "item": "System design capacity",
+      "quantity": 272,
+      "unit": "gpd",
+      "confidence": "schedule_verified",
+      "citations": [
+        {
+          "source_file": "26 0818 SOW Septic System.pdf",
+          "source_page": 1,
+          "source_snippet": "The system shall be constructed to accommodate a maximum daily usage of 272 Gallons Per Day (GPD)."
+        }
+      ],
+      "note": "",
+      "unit_rate": null,
+      "rate_source": null,
+      "total": null
+    },
+    {
+      "csi_division": "33",
+      "csi_division_name": "Utilities \u2014 On-Site Sewage Facility (OSSF)",
+      "item": "Minimum required trench bottom area",
+      "quantity": 1360,
+      "unit": "sf",
+      "confidence": "schedule_verified",
+      "citations": [
+        {
+          "source_file": "26 0818 SOW Septic System.pdf",
+          "source_page": 1,
+          "source_snippet": "The contractor shall prepare a minimum required trench bottom of 1,360 square feet..."
+        }
+      ],
+      "note": "",
+      "unit_rate": null,
+      "rate_source": null,
+      "total": null
+    },
+    {
+      "csi_division": "33",
+      "csi_division_name": "Utilities \u2014 On-Site Sewage Facility (OSSF)",
+      "item": "Engineered drip disposal area",
+      "quantity": 2560,
+      "unit": "sf",
+      "confidence": "schedule_verified",
+      "citations": [
+        {
+          "source_file": "26 0818 SOW Septic System.pdf",
+          "source_page": 1,
+          "source_snippet": "...and install the engineered drip area across 2,560 square feet."
+        }
+      ],
+      "note": "",
+      "unit_rate": null,
+      "rate_source": null,
+      "total": null
+    },
+    {
+      "csi_division": "33",
+      "csi_division_name": "Utilities \u2014 On-Site Sewage Facility (OSSF)",
+      "item": "Pretreatment tank, 500-gallon",
+      "quantity": 1,
+      "unit": "ea",
+      "confidence": "schedule_verified",
+      "citations": [
+        {
+          "source_file": "26 0818 SOW Septic System.pdf",
+          "source_page": 1,
+          "source_snippet": "Furnish, excavate, and install a 500-gallon pretreatment tank..."
+        }
+      ],
+      "note": "",
+      "unit_rate": null,
+      "rate_source": null,
+      "total": null
+    },
+    {
+      "csi_division": "33",
+      "csi_division_name": "Utilities \u2014 On-Site Sewage Facility (OSSF)",
+      "item": "Clearstream aerobic treatment unit, 800-gallon",
+      "quantity": 1,
+      "unit": "ea",
+      "confidence": "schedule_verified",
+      "citations": [
+        {
+          "source_file": "26 0818 SOW Septic System.pdf",
+          "source_page": 1,
+          "source_snippet": "...an 800-gallon Clearstream Treatment Unit..."
+        }
+      ],
+      "note": "",
+      "unit_rate": null,
+      "rate_source": null,
+      "total": null
+    },
+    {
+      "csi_division": "33",
+      "csi_division_name": "Utilities \u2014 On-Site Sewage Facility (OSSF)",
+      "item": "Pump tank, 1,080-gallon",
+      "quantity": 1,
+      "unit": "ea",
+      "confidence": "schedule_verified",
+      "citations": [
+        {
+          "source_file": "26 0818 SOW Septic System.pdf",
+          "source_page": 1,
+          "source_snippet": "...and a 1,080-gallon pump tank. A chlorinator is not required for this specific design."
+        }
+      ],
+      "note": "SOW explicitly states no chlorinator is required \u2014 do not price one.",
+      "unit_rate": null,
+      "rate_source": null,
+      "total": null
+    },
+    {
+      "csi_division": "33",
+      "csi_division_name": "Utilities \u2014 On-Site Sewage Facility (OSSF)",
+      "item": "Simplex effluent pump, Goulds 20 EB, 0.5 HP",
+      "quantity": 1,
+      "unit": "ea",
+      "confidence": "schedule_verified",
+      "citations": [
+        {
+          "source_file": "26 0818 SOW Septic System.pdf",
+          "source_page": 1,
+          "source_snippet": "...a Simplex Effluent Pump (Goulds 20 EB 1/2 HP)..."
+        }
+      ],
+      "note": "",
+      "unit_rate": null,
+      "rate_source": null,
+      "total": null
+    },
+    {
+      "csi_division": "33",
+      "csi_division_name": "Utilities \u2014 On-Site Sewage Facility (OSSF)",
+      "item": "Solids pump, 2-inch, Goulds, in dosing tank",
+      "quantity": 1,
+      "unit": "ea",
+      "confidence": "schedule_verified",
+      "citations": [
+        {
+          "source_file": "26 0818 SOW Septic System.pdf",
+          "source_page": 1,
+          "source_snippet": "...a 2-inch Goulds Solids Pump inside the dosing tank..."
+        }
+      ],
+      "note": "",
+      "unit_rate": null,
+      "rate_source": null,
+      "total": null
+    },
+    {
+      "csi_division": "33",
+      "csi_division_name": "Utilities \u2014 On-Site Sewage Facility (OSSF)",
+      "item": "Effluent pump, Goulds, 0.5 HP, 20 GPM",
+      "quantity": 1,
+      "unit": "ea",
+      "confidence": "schedule_verified",
+      "citations": [
+        {
+          "source_file": "26 0818 SOW Septic System.pdf",
+          "source_page": 1,
+          "source_snippet": "...and a 0.5 HP Goulds 20 GPM Effluent Pump."
+        }
+      ],
+      "note": "",
+      "unit_rate": null,
+      "rate_source": null,
+      "total": null
+    },
+    {
+      "csi_division": "33",
+      "csi_division_name": "Utilities \u2014 On-Site Sewage Facility (OSSF)",
+      "item": "Dual filter, Aztec, 100 micron",
+      "quantity": 1,
+      "unit": "ea",
+      "confidence": "schedule_verified",
+      "citations": [
+        {
+          "source_file": "26 0818 SOW Septic System.pdf",
+          "source_page": 2,
+          "source_snippet": "Install an Aztec Dual 100 Micron Filter to ensure effluent clarity and protect the drip infrastructure."
+        }
+      ],
+      "note": "",
+      "unit_rate": null,
+      "rate_source": null,
+      "total": null
+    },
+    {
+      "csi_division": "33",
+      "csi_division_name": "Utilities \u2014 On-Site Sewage Facility (OSSF)",
+      "item": "Drip tubing, Netafim, 0.91 GPH, across the 2,560 SF drip field",
+      "quantity": 2560,
+      "unit": "sf",
+      "confidence": "schedule_verified",
+      "citations": [
+        {
+          "source_file": "26 0818 SOW Septic System.pdf",
+          "source_page": 2,
+          "source_snippet": "Install Netafim 0.91 GPH drip tubing throughout the designated absorption area."
+        }
+      ],
+      "note": "Quantity re-stated from the drip-area line above \u2014 this is the area the tubing must cover, not a separate linear-footage figure (none given; drip emitter spacing/lateral spacing needed to convert to LF of tubing is not in the SOW).",
+      "unit_rate": null,
+      "rate_source": null,
+      "total": null
+    },
+    {
+      "csi_division": "33",
+      "csi_division_name": "Utilities \u2014 On-Site Sewage Facility (OSSF)",
+      "item": "Supply piping, training facility building to septic system (Sch 40 or DWV)",
+      "quantity": null,
+      "unit": "lf",
+      "confidence": "unresolved",
+      "citations": [
+        {
+          "source_file": "26 0818 SOW Septic System.pdf",
+          "source_page": 1,
+          "source_snippet": "Install Schedule 40 or DWV thick-wall pipe for all connections running from the training facility building to the septic system."
+        }
+      ],
+      "note": "No length given in the SOW; the septic system's own 2-page SOW has no site plan showing the building-to-tank distance. Needs the actual site/civil plan for the fire training facility building, which is not included in this bid-attachments package.",
+      "unit_rate": null,
+      "rate_source": null,
+      "total": null
+    }
+  ]
+}

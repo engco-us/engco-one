@@ -79,6 +79,21 @@
       "forecast_finish": null,
       "last_update": "2026-09-14",
       "folder": "projects/ENG-2026-001-CE-King-Pkwy-Hike-and-Bike-Trail-Houston"
+    },
+    {
+      "project_id": "ENG-2026-002",
+      "project_name": "LSC Kingwood Fire Science Water Line and Septic System",
+      "city": "Porter",
+      "client": "Lone Star College (CSP 26-08-10)",
+      "project_type": "Civil / Utilities (Water Line + OSSF)",
+      "current_phase": "Bid / Proposal",
+      "overall_status": "On Track",
+      "project_manager": "",
+      "contract_value": 0,
+      "start_date": "2026-09-15",
+      "forecast_finish": null,
+      "last_update": "2026-09-15",
+      "folder": "projects/ENG-2026-002-LSC-Kingwood-Fire-Science-Water-Line-and-Septic-System-Porter"
     }
   ]
 }
