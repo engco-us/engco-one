@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Thin wrapper so `./engco <command>` works from the repo root without
+# remembering it lives in cli/. See cli/registry.py to register a new command.
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+exec python3 "$DIR/cli/engco.py" "$@"
