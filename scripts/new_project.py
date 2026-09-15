@@ -44,6 +44,11 @@ def main():
     args = ap.parse_args()
 
     registry = json.loads(REGISTRY_PATH.read_text())
+
+    if args.phase not in registry["valid_phases"]:
+        print(f"FAIL: invalid --phase {args.phase!r} (must be one of {registry['valid_phases']})")
+        raise SystemExit(1)
+
     project_id = next_project_id(registry)
     folder_name = f"{project_id} | {args.name} | {args.city}"
     project_dir = PROJECTS_DIR / slugify(folder_name)
