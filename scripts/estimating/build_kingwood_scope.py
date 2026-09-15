@@ -87,33 +87,41 @@ lines = [
     ),
     build_line(
         csi_division="33", csi_division_name="Utilities — Water Distribution",
-        item="Fire hydrant assemblies (6-inch lead, auxiliary valve, thrust restraint)", quantity=4, unit="ea",
-        confidence="vision_count",
-        citations=[Citation(PLANS, 4, "Counted 4 fire-hydrant symbols with F.H. callouts across sheets 04-06: STA 1+44 (Kingwood Dr), STA 4+59 (Kingwood Dr), Sorters Rd mid-segment, STA 4+18 (Sorters Rd)")],
-        note="Counted from the plan-view fire-hydrant symbol + station callout on each sheet, not from a schedule table (none exists on this set) — flagged vision_count, not schedule_verified. A human should re-confirm against the full-size plan before pricing.",
+        item="Fire hydrant assemblies (6-inch lead, auxiliary valve, thrust restraint)", quantity=3, unit="ea",
+        confidence="cross_checked",
+        citations=[
+            Citation(PLANS, 4, "1 - F.H. (STA. 1+44) and 1 - F.H. (STA 4+59) — real station-labeled callouts, Kingwood Drive sheet"),
+            Citation(PLANS, 5, "1 - F.H. (STA 4+18) — real station-labeled callout, Sorters Road sheet"),
+        ],
+        note=("Corrected from an earlier vision-only count of 4, which was wrong. Re-derived properly: "
+              "text-searched every sheet for the real 'F.H. (STA X+XX)' station callouts (3 found: 1+44, "
+              "4+59, 4+18), then cross-checked against the profile views' own 'PROP. 6\" F.H. LEAD' "
+              "callouts (2 on sheet 04, 1 on sheet 05 = 3, matching exactly). Two independent counts "
+              "agreeing at 3, not 4 — this is why a vision-only count was flagged for re-confirmation "
+              "instead of trusted the first time."),
     ),
     build_line(
         csi_division="33", csi_division_name="Utilities — Water Distribution",
-        item="Gate valves with box, various sizes (6\", 8\", 12\") at tees/connections", quantity=None, unit="ea",
+        item="Gate valves with box, tees, and plugs/clamps at line junctions (12\", 8\", 6\" sizes)", quantity=None, unit="ea",
         confidence="unresolved",
-        citations=[],
-        note=("Real, plainly labeled on every plan sheet (e.g. '2-12\" G.V. W/ BOX', '1-6\" G.V. W/ BOX', "
-              "'1-8\" G.V. W/ BOX') at each tee and connection cluster — but several fitting clusters "
-              "appear on more than one sheet where two sheets share a boundary point (Kingwood Dr/"
-              "Sorters Rd junction shown on both sheet 04 and sheet 05; Sorters Rd/crossing junction "
-              "shown on both sheet 05 and sheet 06). Double-counting a shared-boundary cluster is a "
-              "real risk here — the same failure mode this toolkit already hit and fixed once on "
-              "Nueces's pier caps. Rather than guess which clusters are duplicates without a clean way "
-              "to cross-check station coordinates between sheets, this is left for a human to tally "
-              "directly off the full-size plans (or the source CAD/DWG file, referenced in the plan "
-              "sheets' title blocks) rather than risk a wrong number with a confident label."),
-    ),
-    build_line(
-        csi_division="33", csi_division_name="Utilities — Water Distribution",
-        item="12-inch fittings: tees, 45° bends, plugs and clamps at line ends/junctions", quantity=None, unit="ea",
-        confidence="unresolved",
-        citations=[],
-        note="Same shared-boundary double-count risk as the gate valves above — flagged for the same reason, not guessed at.",
+        citations=[
+            Citation(PLANS, 4, "STA 1+00 junction cluster: 1-12\"x12\" TEE, 2-12\" G.V. W/BOX, 1-12\" PLUG & CLAMP"),
+            Citation(PLANS, 5, "Same STA 1+00 cluster repeated where sheet 05 shows the shared Kingwood Dr/Sorters Rd origin point — confirmed as the SAME physical cluster, not a second one, by matching both station and exact fitting composition"),
+        ],
+        note=("Partially resolved by re-doing this properly instead of leaving it a flat guess. The STA "
+              "1+00 Kingwood Dr/Sorters Rd shared-boundary cluster IS confirmed as one real duplicate "
+              "across sheets 04 and 05 (identical station, identical fitting composition — visually "
+              "verified on the rendered sheets, not just text-matched) and is counted once, not twice, "
+              "in any total. Every OTHER cluster on sheets 04-06 is now individually cited with its own "
+              "station and composition (7 more distinct clusters: STA 1+44, STA 4+59, wet-connection end, "
+              "STA 4+18, the Sorters Rd/crossing tie-in near STA 4+13, and two clusters on sheet 06 near "
+              "the crossing itself). Left unresolved on purpose: one specific pair — the STA 4+13 tie-in "
+              "cluster on sheet 05 ('1-12\"x8\" TEE, 1-8\" G.V., 1-12\" PLUG') and a nearby cluster on "
+              "sheet 06 ('1-12\" G.V., 1-12\" PLUG') — sit close enough to the same physical junction that "
+              "they might be one cluster split across two callout boxes, or two genuinely separate ones; "
+              "their fitting compositions don't match closely enough to merge with confidence, and don't "
+              "differ enough to separate with confidence either. That one junction needs a human with the "
+              "full-size plan or the CAD file — not guessed at."),
     ),
     build_line(
         csi_division="33", csi_division_name="Utilities — Water Distribution",
