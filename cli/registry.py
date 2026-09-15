@@ -32,6 +32,11 @@ COMMANDS = [
      "help": "Run the golden quantity test manifest, report real accuracy",
      "usage": "[--tolerance-pct N]"},
 
+    # --- design/engineering QA ---
+    {"category": "qa", "name": "sheet-index", "script": "scripts/qa/check_sheet_index.py",
+     "help": "Catch a missing/swapped/mislabeled sheet by cross-checking the cover index against every page's own stamp",
+     "usage": "<pdf>"},
+
     # --- leads finder ---
     {"category": "leads", "name": "report", "script": "scripts/leads/run_leads_report.py",
      "help": "Run every lead connector, dedupe, flag construction-relevant leads",
