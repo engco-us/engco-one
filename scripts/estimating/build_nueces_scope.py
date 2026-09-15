@@ -17,6 +17,7 @@ from assemble_scope import build_line, assemble, to_markdown, Citation
 
 GEN = "00 23015 GEN Permit 2025-1024.pdf"
 STRUCT = "04 23015 STRUCT Permit 2025-1023.pdf"
+ARCH = "03 23015 ARCH Permit 2025-1024.pdf"
 
 lines = [
     build_line(
@@ -89,6 +90,40 @@ lines = [
             Citation(STRUCT, 7, "PC2(1×1) + PC3(4×1) + PC4(2×4) + PC5(2×1) = 15; excludes PC1, which is unresolved"),
         ],
         note="Marked unresolved (not cross_checked) despite having a citation, because it is INCOMPLETE by construction — excludes PC1's unknown quantity. The true total is >=15, not =15. This is a deliberate exception: a derived figure known to be a floor, not a fact.",
+    ),
+    build_line(
+        csi_division="08", csi_division_name="Openings — Doors",
+        item="Interior + exterior doors, total individually-scheduled count", quantity=85, unit="ea",
+        confidence="schedule_verified",
+        citations=[Citation(ARCH, 43, "INTERIOR DOOR & FRAME SCHEDULE + EXTERIOR DOOR & FRAME SCHEDULE, 85 rows parsed by scripts/estimating/extract_door_schedule.py — every row required a real ID + location + width + height match, nothing guessed. Verified against a visual count of the rendered page (2026-09-15).")],
+        note=("Two real bugs were caught during that visual verification and fixed before this "
+              "number was trusted: a hyphen missing from the location pattern silently dropped all "
+              "6 real 'MULTI-PURPOSE' doors, and a legend label sitting on the same text line as a "
+              "real row (layout bleed) was briefly mislabeling one door's ID. Also flags a real data "
+              "quality issue found in the source drawing itself, not introduced by extraction: door "
+              "ID X102 is used twice on the exterior schedule (REAR LOBBY and, separately, a 90-min-"
+              "rated STAIR door) — a likely architect numbering error, reported as-is rather than "
+              "silently deduplicated. Does NOT include the 36 residential units' interior doors — "
+              "see the next line."),
+    ),
+    build_line(
+        csi_division="08", csi_division_name="Openings — Doors",
+        item="Interior + exterior doors, total leaf area (sum of width × height, 85 rows)",
+        quantity=2511.0, unit="sf",
+        confidence="schedule_verified",
+        citations=[Citation(ARCH, 43, "Sum of width × height for the same 85 rows; no row estimated or missing")],
+    ),
+    build_line(
+        csi_division="08", csi_division_name="Openings — Doors",
+        item="Residential-unit door types (R1-R7, XR1: entry, bedroom/bath, laundry closet, closet bypass, bathroom, washer/dryer, mech closet, exterior terrace)",
+        quantity=None, unit="ea",
+        confidence="unresolved",
+        citations=[],
+        note=("A RESIDENT DOOR & FRAME SCHEDULE on the same sheet (Arch p43) confirms these 8 door "
+              "TYPES are used across the building's 36 units, but the sheet gives the type, not how "
+              "many of each type per unit — that requires reading the actual unit floor plans, not "
+              "attempted here. Confirms the scope gap flagged in the line above was real, not "
+              "speculative: these doors exist, are typed, and are simply not yet counted."),
     ),
 ]
 

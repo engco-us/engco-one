@@ -32,6 +32,13 @@ Uses `pdftotext -layout` (preserves column position), which was necessary:
 plain-mode text interleaves multiple tables unpredictably when the same
 label ("FIRST FLOOR:") appears in two different tables on one sheet.
 
+**`extract_door_schedule.py`** — pulls door ID, location, width, and
+height off an architectural door & frame schedule. One ID pattern and row
+structure covers every door-numbering scheme found on the same real sheet
+(plain 3-digit room-based IDs, `C###`/`ST###`/`X###` prefixed IDs, and
+`R#`/`XR#` unit door TYPE codes) — see the "Trust the render, not the
+regex" lesson below for how its first version was wrong and got caught.
+
 ## VISION RULE (Phase 2 guardrail)
 
 Vision is allowed to **count and identify** — how many, roughly what kind,
@@ -100,6 +107,33 @@ A real, honest gap came out of this too: PC1 appears in the schedule but
 was never found as a plan callout on any of the three sheets classified
 as `foundation_plan` in this set. Not resolved, not guessed at — flagged
 as needing a human to check the source file directly.
+
+## Lesson learned: trust the render, not just the regex (2026-09-15)
+
+`extract_door_schedule.py`'s first version reported 54 doors and looked
+clean — no errors, no obviously malformed rows. It was wrong. Rendering
+the same page as an image and counting rows by eye (the same VISION RULE
+cross-check used elsewhere) found 92-93 real rows, not 54. Two silent
+bugs caused the gap: the location pattern didn't allow a hyphen, so every
+"MULTI-PURPOSE" door (6 of them) failed to match with no error raised;
+and a legend label sitting on the same text line as a real row (a layout-
+bleed artifact, same root cause as the pier-cap page) got swallowed into
+the door ID, mislabeling a real row instead of skipping it. Neither bug
+would have been caught by re-reading the script or the JSON output alone
+— both looked structurally fine. **The fix that actually caught this was
+rendering the page and counting real rows against the tool's output
+before trusting either one.** The corrected extractor also surfaced a
+real data-quality issue in the source drawing itself (door ID `X102`
+used twice, for two different rooms) — reported as found, not silently
+deduplicated, per the same "flag anomalies, don't resolve them
+silently" rule as the OCG issue below.
+
+A second, separate real finding on the same sheet: a schedule titled
+"WINDOW SCHEDULE" turned out, on inspection, to be a storefront
+**elevation detail sheet** (dimensioned drawings of window/storefront
+types with `EQ` spacing strings), not a row-based table — genuinely not
+extractable as clean quantities via text, the same category of honest
+gap as REScheck's two unhandled envelope-table layouts. Not forced.
 
 ## Known limitation — not solved, documented on purpose
 

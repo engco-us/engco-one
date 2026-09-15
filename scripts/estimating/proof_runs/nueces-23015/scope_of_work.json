@@ -1,6 +1,6 @@
 {
   "project_name": "Nueces Mosque & Residential Tower (23015)",
-  "line_count": 10,
+  "line_count": 13,
   "lines": [
     {
       "csi_division": "00",
@@ -173,6 +173,57 @@
         }
       ],
       "note": "Marked unresolved (not cross_checked) despite having a citation, because it is INCOMPLETE by construction \u2014 excludes PC1's unknown quantity. The true total is >=15, not =15. This is a deliberate exception: a derived figure known to be a floor, not a fact.",
+      "unit_rate": null,
+      "rate_source": null,
+      "total": null
+    },
+    {
+      "csi_division": "08",
+      "csi_division_name": "Openings \u2014 Doors",
+      "item": "Interior + exterior doors, total individually-scheduled count",
+      "quantity": 85,
+      "unit": "ea",
+      "confidence": "schedule_verified",
+      "citations": [
+        {
+          "source_file": "03 23015 ARCH Permit 2025-1024.pdf",
+          "source_page": 43,
+          "source_snippet": "INTERIOR DOOR & FRAME SCHEDULE + EXTERIOR DOOR & FRAME SCHEDULE, 85 rows parsed by scripts/estimating/extract_door_schedule.py \u2014 every row required a real ID + location + width + height match, nothing guessed. Verified against a visual count of the rendered page (2026-09-15)."
+        }
+      ],
+      "note": "Two real bugs were caught during that visual verification and fixed before this number was trusted: a hyphen missing from the location pattern silently dropped all 6 real 'MULTI-PURPOSE' doors, and a legend label sitting on the same text line as a real row (layout bleed) was briefly mislabeling one door's ID. Also flags a real data quality issue found in the source drawing itself, not introduced by extraction: door ID X102 is used twice on the exterior schedule (REAR LOBBY and, separately, a 90-min-rated STAIR door) \u2014 a likely architect numbering error, reported as-is rather than silently deduplicated. Does NOT include the 36 residential units' interior doors \u2014 see the next line.",
+      "unit_rate": null,
+      "rate_source": null,
+      "total": null
+    },
+    {
+      "csi_division": "08",
+      "csi_division_name": "Openings \u2014 Doors",
+      "item": "Interior + exterior doors, total leaf area (sum of width \u00d7 height, 85 rows)",
+      "quantity": 2511.0,
+      "unit": "sf",
+      "confidence": "schedule_verified",
+      "citations": [
+        {
+          "source_file": "03 23015 ARCH Permit 2025-1024.pdf",
+          "source_page": 43,
+          "source_snippet": "Sum of width \u00d7 height for the same 85 rows; no row estimated or missing"
+        }
+      ],
+      "note": "",
+      "unit_rate": null,
+      "rate_source": null,
+      "total": null
+    },
+    {
+      "csi_division": "08",
+      "csi_division_name": "Openings \u2014 Doors",
+      "item": "Residential-unit door types (R1-R7, XR1: entry, bedroom/bath, laundry closet, closet bypass, bathroom, washer/dryer, mech closet, exterior terrace)",
+      "quantity": null,
+      "unit": "ea",
+      "confidence": "unresolved",
+      "citations": [],
+      "note": "A RESIDENT DOOR & FRAME SCHEDULE on the same sheet (Arch p43) confirms these 8 door TYPES are used across the building's 36 units, but the sheet gives the type, not how many of each type per unit \u2014 that requires reading the actual unit floor plans, not attempted here. Confirms the scope gap flagged in the line above was real, not speculative: these doors exist, are typed, and are simply not yet counted.",
       "unit_rate": null,
       "rate_source": null,
       "total": null
