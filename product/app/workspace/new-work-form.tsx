@@ -2,12 +2,16 @@
 
 import { useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import { Loader2, UploadCloud } from 'lucide-react';
 
 export function NewWorkForm({ projects }: { projects: { id: string; name: string }[] }) {
   const router = useRouter();
   const input = useRef<HTMLInputElement>(null);
-  const [projectId, setProjectId] = useState('');
+  // Default to the most recently registered project so dropping a file
+  // works with zero clicks in the common case — the dropdown is still
+  // there to change it, not to force a choice before every takeoff.
+  const [projectId, setProjectId] = useState(projects.at(-1)?.id ?? '');
   const [busy, setBusy] = useState(false);
   const [dragOver, setDragOver] = useState(false);
   const [error, setError] = useState('');
@@ -28,6 +32,14 @@ export function NewWorkForm({ projects }: { projects: { id: string; name: string
       setError(caught instanceof Error ? caught.message : 'Could not run the takeoff.');
       setBusy(false);
     }
+  }
+
+  if (!projects.length) {
+    return (
+      <p className="text-sm text-muted-foreground">
+        No projects yet — <Link href="/workspace/projects" className="font-medium text-emerald-700 underline">register one</Link> first, it takes one form.
+      </p>
+    );
   }
 
   return (

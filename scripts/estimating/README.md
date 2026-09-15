@@ -39,6 +39,18 @@ structure covers every door-numbering scheme found on the same real sheet
 `R#`/`XR#` unit door TYPE codes) — see the "Trust the render, not the
 regex" lesson below for how its first version was wrong and got caught.
 
+**`auto_extract.py`** — tries every extractor above that this toolkit has
+real proof on (COMcheck, REScheck, TxDOT E&Q, door schedules) against one
+PDF and reports only the ones that actually matched, with an honest note
+when none did. Exists because `classify_sheets.py` alone is NOT a
+quantity takeoff — it tags what's on each page and never produces a
+number, and a product surface once shipped that confused the two (a
+"Quantity Takeoff" screen that only ran classification and showed a user
+a list of page tags with no quantities on it, live, in front of the
+user — see the product's own commit history). This is the fix: run
+everything real, say plainly when nothing matched, never let
+classification stand in for extraction.
+
 ## VISION RULE (Phase 2 guardrail)
 
 Vision is allowed to **count and identify** — how many, roughly what kind,

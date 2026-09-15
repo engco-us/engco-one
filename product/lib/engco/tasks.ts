@@ -27,12 +27,21 @@ export type TaskAttachment = {
   uploadedAt: string;
 };
 
+export type QuantityMatch = {
+  extractor: 'comcheck' | 'rescheck' | 'txdot_eq' | 'door_schedule';
+  result?: Record<string, unknown>;
+  rows?: Record<string, unknown>[];
+  pages?: Record<string, unknown>[];
+};
+
 export type DocumentAnalysis = {
   attachmentId: string;
   fileName: string;
   pageCount: number;
   unclassifiedCount: number;
   pages: { page: number; sheet_types: string[]; note?: string }[];
+  quantities: QuantityMatch[];
+  quantitiesNote: string | null;
   analyzedAt: string;
   error?: string;
 };

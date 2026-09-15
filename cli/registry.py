@@ -31,6 +31,12 @@ COMMANDS = [
     {"category": "estimate", "name": "score", "script": "scripts/estimating/score_quantity_tests.py",
      "help": "Run the golden quantity test manifest, report real accuracy",
      "usage": "[--tolerance-pct N]"},
+    {"category": "estimate", "name": "door-schedule", "script": "scripts/estimating/extract_door_schedule.py",
+     "help": "Pull door ID/location/width/height off a door & frame schedule",
+     "usage": "<pdf> --page N   (or --find-pages to locate it first)"},
+    {"category": "estimate", "name": "auto", "script": "scripts/estimating/auto_extract.py",
+     "help": "Try every proven extractor (COMcheck/REScheck/TxDOT/door schedule) and report only real matches",
+     "usage": "<pdf>"},
 
     # --- design/engineering QA ---
     {"category": "qa", "name": "sheet-index", "script": "scripts/qa/check_sheet_index.py",

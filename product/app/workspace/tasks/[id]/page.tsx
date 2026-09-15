@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { ArrowLeft, FileText } from 'lucide-react';
+import { AlertTriangle, ArrowLeft, FileText } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { getTask } from '@/lib/engco/tasks';
+import { getTask, type QuantityMatch } from '@/lib/engco/tasks';
 import { AttachmentUpload } from './attachment-upload';
 import { AnalyzeButton } from './analyze-button';
 
@@ -39,40 +39,41 @@ export default async function TaskPage({ params }: { params: Promise<{ id: strin
 
       <Card>
         <CardHeader className="flex-row items-center justify-between">
-          <CardTitle className="text-base">Results</CardTitle>
+          <CardTitle className="text-base">Quantities</CardTitle>
           <AnalyzeButton taskId={task.id} disabled={!task.attachments?.length} />
         </CardHeader>
         <CardContent>
-          {task.analyses?.length ? (
-            <div className="space-y-4">
-              {task.analyses.map((analysis) => (
-                <div key={analysis.attachmentId} className="rounded-md border p-4">
-                  <p className="font-medium">{analysis.fileName}</p>
-                  {analysis.error ? (
-                    <p className="mt-1 text-sm text-destructive">{analysis.error}</p>
-                  ) : (
-                    <>
-                      <p className="mt-1 text-sm text-muted-foreground">{analysis.pageCount} pages &middot; {analysis.unclassifiedCount} unclassified</p>
-                      <div className="mt-3 space-y-1">
-                        {analysis.pages.filter((p) => p.sheet_types.length).map((p) => (
-                          <div key={p.page} className="flex items-center gap-2 text-sm">
-                            <span className="w-14 shrink-0 font-mono text-muted-foreground">p.{p.page}</span>
-                            <span className="flex flex-wrap gap-1">
-                              {p.sheet_types.map((t) => <span key={t} className="rounded bg-emerald-50 px-2 py-0.5 text-xs font-medium text-emerald-800">{t}</span>)}
-                            </span>
-                          </div>
-                        ))}
-                      </div>
-                    </>
-                  )}
+          {!task.analyses?.length && <p className="text-sm text-muted-foreground">No results yet.</p>}
+          {task.analyses?.map((analysis) => (
+            <div key={analysis.attachmentId} className="space-y-3">
+              {analysis.error && <p className="text-sm text-destructive">{analysis.error}</p>}
+              {!analysis.error && analysis.quantities.length > 0 && analysis.quantities.map((q, i) => <QuantityCard key={i} match={q} />)}
+              {!analysis.error && analysis.quantities.length === 0 && analysis.quantitiesNote && (
+                <div className="flex gap-2 rounded-md border border-amber-200 bg-amber-50 p-3 text-sm text-amber-900">
+                  <AlertTriangle className="h-4 w-4 shrink-0 translate-y-0.5" />
+                  <p>{analysis.quantitiesNote}</p>
                 </div>
-              ))}
+              )}
             </div>
-          ) : (
-            <p className="text-sm text-muted-foreground">No results yet.</p>
-          )}
+          ))}
         </CardContent>
       </Card>
+
+      {!!task.analyses?.length && (
+        <details className="rounded-lg border bg-white">
+          <summary className="cursor-pointer select-none px-5 py-3 text-sm font-medium">What&apos;s on each page ({task.analyses[0]?.pageCount ?? 0} pages)</summary>
+          <div className="space-y-1 px-5 pb-4">
+            {task.analyses[0]?.pages.filter((p) => p.sheet_types.length).map((p) => (
+              <div key={p.page} className="flex items-center gap-2 text-sm">
+                <span className="w-14 shrink-0 font-mono text-muted-foreground">p.{p.page}</span>
+                <span className="flex flex-wrap gap-1">
+                  {p.sheet_types.map((t) => <span key={t} className="rounded bg-slate-100 px-2 py-0.5 text-xs font-medium text-slate-700">{t}</span>)}
+                </span>
+              </div>
+            ))}
+          </div>
+        </details>
+      )}
 
       <Card>
         <CardHeader className="flex-row items-center justify-between">
@@ -94,6 +95,48 @@ export default async function TaskPage({ params }: { params: Promise<{ id: strin
       </Card>
     </div>
   );
+}
+
+function QuantityCard({ match }: { match: QuantityMatch }) {
+  if (match.extractor === 'comcheck' || match.extractor === 'rescheck') {
+    const r = match.result ?? {};
+    const area = match.extractor === 'comcheck' ? r.floor_area_sf : r.conditioned_floor_area_sf;
+    return (
+      <div className="rounded-md border p-4">
+        <p className="text-xs font-medium uppercase tracking-wide text-emerald-700">{match.extractor === 'comcheck' ? 'COMcheck' : 'REScheck'}</p>
+        <p className="mt-1 text-2xl font-semibold">{typeof area === 'number' ? area.toLocaleString() : '—'} <span className="text-sm font-normal text-muted-foreground">SF floor area</span></p>
+      </div>
+    );
+  }
+  if (match.extractor === 'txdot_eq') {
+    const rows = match.rows ?? [];
+    return (
+      <div className="rounded-md border p-4">
+        <p className="text-xs font-medium uppercase tracking-wide text-emerald-700">TxDOT Estimate &amp; Quantity</p>
+        <p className="mt-1 text-sm text-muted-foreground">{rows.length} bid item{rows.length === 1 ? '' : 's'}</p>
+        <div className="mt-2 divide-y">
+          {rows.map((row, i) => (
+            <div key={i} className="flex items-center justify-between py-1.5 text-sm">
+              <span className="min-w-0 truncate">{String(row.description)}</span>
+              <span className="shrink-0 font-mono text-muted-foreground">{String(row.est_quantity)} {String(row.unit)}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
+  if (match.extractor === 'door_schedule') {
+    const pages = match.pages ?? [];
+    const totalDoors = pages.reduce((sum, p) => sum + (Number(p.door_count) || 0), 0);
+    const totalArea = pages.reduce((sum, p) => sum + (Number(p.total_door_area_sf) || 0), 0);
+    return (
+      <div className="rounded-md border p-4">
+        <p className="text-xs font-medium uppercase tracking-wide text-emerald-700">Door schedule</p>
+        <p className="mt-1 text-2xl font-semibold">{totalDoors} <span className="text-sm font-normal text-muted-foreground">doors &middot; {totalArea.toLocaleString()} SF leaf area</span></p>
+      </div>
+    );
+  }
+  return null;
 }
 
 function formatBytes(bytes: number) {
