@@ -6,6 +6,12 @@
       "runtimeExecutable": "python3",
       "runtimeArgs": ["webapp/app.py"],
       "port": 5050
+    },
+    {
+      "name": "engco-product",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev", "--prefix", "product"],
+      "port": 3000
     }
   ]
 }

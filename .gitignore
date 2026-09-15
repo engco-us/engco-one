@@ -1,3 +1,4 @@
 __pycache__/
 *.pyc
 data/leads/seen_leads.json
+data/tasks.json
